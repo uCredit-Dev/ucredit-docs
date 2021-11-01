@@ -6,13 +6,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'uCredit Docs',
+  tagline: 'docs docs docs!',
+  url: 'https://ucredit.me/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.png',
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
 
@@ -24,13 +24,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/qin-andy/ucredit-docs',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/qin-andy/ucredit-docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -45,25 +45,25 @@ const config = {
       navbar: {
         title: 'uCredit Docs',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'uCredit Logo',
+          src: 'img/logo.png',
         },
         items: [
-          {
-            type: 'doc',
-            docId: 'tutorial/intro',
-            position: 'left',
-            label: 'Tutorial',
-          },
           {
             type: 'doc',
             docId: 'uCredit/intro',
             position: 'left',
             label: 'uCredit',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            type: 'doc',
+            docId: 'tutorial/intro',
+            position: 'left',
+            label: 'Docusaurus',
+          },
+          {to: '/blog', label: 'Example Blog', position: 'left'},
+          {
+            href: 'https://github.com/qin-andy/ucredit-docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -107,12 +107,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/qin-andy/ucredit-docs',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} uCredit Docs, Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

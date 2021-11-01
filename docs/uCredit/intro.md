@@ -48,3 +48,18 @@ The right sidebar should be automatically picking these up. Pretty neat huh?
 ### Test out the search.
 
 Try searching for the term "Inazuma". It should lead to this page!
+
+
+### Ideas about components
+Next, we wanna figure out what are the important parts of each component to document. Some ideas:
+  - Picture of component in context (from production website)
+  - Description of the purpose of the component
+
+Technical Details to Consider:
+  - File path
+  - Props and type definitinos
+  - Redux stores selected
+  - Redux actions dispatched
+  - Children components/conditions for rendering
+
+Don't want too many technical details.

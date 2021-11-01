@@ -2,13 +2,61 @@
 sidebar_label: Dashboard
 sidebar_position: 1
 ---
-# Dashboard
-Here's where we'd put components related to the dashboard.
+# Dashboard Components
 
-There are different kinds of components here. Course list, which is the whole 4 year view, and the Right Column,
-which shows the credit distributions.
+The page for all Dashboard related components.
+
+## ``Dashboard``
+<div>
+  <img src="/img/components/dashboard.png"/>
+</div>
+
+The component displaying the user's current plan course list, plan info, plan management options, and popups.
 
 ## Course List Components
+
+### ``CourseList``
+<img src="/img/components/course-list.png"/>
+
+The container for ``YearDraggable`` and ``YearComponent`` components. Contains drag and drop logic.
+
+### ``YearComponent``
+<img src="/img/components/year-component.png"/>
+
+Displays all semesters and courses planned for a year from all semesters (Fall, Winter (Intersession), Spring, Summer).
+Holds multiple ``Semester`` components.
+
+### ``YearDraggable``
+The [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) wrapper for ``YearComponent``.
+Used to enable drag and drop rearrangement of years in the ``CourseList`` component.
+
+### ``YearSettingsDropdown``
+<img src="/img/components/year-settings-dropdown.png"/>
+
+Settings dropdown menu for year. Used to perform actions such as renaming, changing years, reselecting terms, or
+deleting a year entirely.
+
+### ``Semester``
+<img src="/img/components/semester.png"/>
+
+A component representing a single semester, displaying all courses planned for that semester. 
+Contains functionality to add new courses by opening the search popup.
+Holds multiple``CourseComponent`` components.
+
+### ``CourseComponent``
+<img src="/img/components/course.png"/>
+
+The course card for a single course, displayed under a ``Semester`` in a ``YearComponent`` in the ``CourseList``. 
+On hover, displays buttons for course info, deletion, prereq overriding, and dragging.
+
+### ``CourseDraggable``
+
+The react-beautiful-dnd wrapper for ``CourseComponent``. Used to enable drag and drop rearrangement of
+ ``CourseComponent`` components between different ``Semester`` components, even between different years.
+
+### ``OverridePrereqPopup``
+<img src="/img/components/override-prereq-popup.png"/>
+
 
 ## Right Column Components
 

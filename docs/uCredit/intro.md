@@ -5,17 +5,40 @@ sidebar_position: 1
 
 # Intro
 
-These are the docs for uCredit
-
-## It's me, the first heading!
-
-Here's a test header. It's pretty neat, huh?
-
-:::note
-
-Here's a note. Pretty cool, huh?
-
+:::info
+Visit the frontend repo at https://github.com/MattLiu-mygit/ucredit_frontend_typescript
 :::
+
+These are the docs for the uCredit frontend!
+
+## **Documentation Goals**:
+  - Help build a mental model for frontend components on website
+  - Help understand repo structure and file organization
+  - Component reference (more qualitative)
+  - TypeScript types reference
+  - Redux store, actions, reducers, and selectors reference
+
+## Component Documentation
+
+:::danger About Technical Details
+uCredit is still under development! The goal of these docs isn't to document 
+implementation details, but to provide a hollistic resource for understanding 
+the codebase at a high level.
+
+Documentation is NOT an excuse to write unreadable code!
+:::
+
+Some ideas:
+  - Picture of component in context (from production website)
+  - Description of the purpose of the component
+  - Children of component which are other components
+
+Technical Details to Consider:
+  - File path
+  - Props and type definitinos
+  - Redux stores selected
+  - Redux actions dispatched
+  - Children components/conditions for rendering
 
 :::danger
 
@@ -23,7 +46,7 @@ Never look a tulip in the eye.
 
 :::
 
-## Look at all these Subheadings!
+## Testing Markdown Features
 
 Here's a second test header. Hello team!
 
@@ -41,25 +64,23 @@ const SomeComponent = () => {
 }
 ```
 
-### Here's a second one.
+### TypeScript Code Block
 
-The right sidebar should be automatically picking these up. Pretty neat huh?
+```typescript
+let myNumber: number = 6; // type annotation
+let mySum = myNumber + 3; // type inference
 
-### Test out the search.
+myNumber = 'Invalid Assignment'; // the ts compiler will catch this error!
+myNumber = 3; // this would be fine though
 
-Try searching for the term "Inazuma". It should lead to this page!
+// type annotations in function signatures
+const funnyAdd = (x: number, y: number): number => {
+  return x + y; // this is fine!
+}
 
+const funnyAdd2 = (x: number, y: number): number => {
+  return 'Error'; // compiler will catch this
+}
 
-### Ideas about components
-Next, we wanna figure out what are the important parts of each component to document. Some ideas:
-  - Picture of component in context (from production website)
-  - Description of the purpose of the component
-
-Technical Details to Consider:
-  - File path
-  - Props and type definitinos
-  - Redux stores selected
-  - Redux actions dispatched
-  - Children components/conditions for rendering
-
-Don't want too many technical details.
+funnyAdd(myNumber, 'Hello'); // compiler will catch this
+```

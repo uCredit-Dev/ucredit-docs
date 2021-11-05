@@ -7,11 +7,19 @@ sidebar_position: 1
 
 The page for all Dashboard related components.
 
-## ``Dashboard``
+## Main Components
+
+### ``Dashboard``
 
 ![Dashboard](/img/components/dashboard.png)
 
 The component displaying the user's current plan course list, plan info, plan management options, and popups.
+
+### ``HandleUserEntryDummy``
+
+### ``InfoMenu``
+
+### ``UserSection``
 
 ## Course List Components
 
@@ -59,9 +67,21 @@ The react-beautiful-dnd wrapper for ``CourseComponent``. Used to enable drag and
 
 ## Right Column Components
 
-### Example Components
-Note the ### instead of ##. Here, we would put description for a specific component.
+### ``ActionBar``
 
-### Another Component
-Hopefully the documentation for each component isn't super long. Read the code for implementation details,
-the documentation should be a compilation of existing comments, but also putting things in a human readable context.
+### ``PlanChoose``
+
+### ``ShareLinksPopup``
+
+### ``Distributions``
+
+### ``DistributionBars``
+
+### ``CourseBar``
+
+### ``FineDistribution``
+
+### ``InfoCards``
+
+### ``DistributionPopup``
+DEPRECATED

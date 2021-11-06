@@ -16,10 +16,30 @@ The page for all Dashboard related components.
 The component displaying the user's current plan course list, plan info, plan management options, and popups.
 
 ### ``HandleUserEntryDummy``
+Handles user entry and login logic. Does not render anything (not visible on page).
+
+**Props**
+
+| Prop       | Type           | Description                                    |
+|------------|----------------|------------------------------------------------|
+| setLoginId | Function       | Callback used to set login id based on cookies |
+| id         | string \| null | ???                                            |
 
 ### ``InfoMenu``
+Info menu shows degree plan and degree information. Container for ``Distributions`` component.
+
+TODO : image
 
 ### ``UserSection``
+Top bar containing user greeting and log out button.
+
+**Props**
+
+| Prop    | Type   | Description         |
+|---------|--------|---------------------|
+| loginId | string | The user's login id |
+
+TODO : image
 
 ## Course List Components
 
@@ -68,20 +88,32 @@ The react-beautiful-dnd wrapper for ``CourseComponent``. Used to enable drag and
 ## Right Column Components
 
 ### ``ActionBar``
+Top bar used for plan management. Used to add, remove, and switch plans.
+Contains ``PlanChoose`` and ``ShareLinksPopup``.
 
 ### ``PlanChoose``
+Dropdown menu for selecting user plan to display on the dashboard.
 
 ### ``ShareLinksPopup``
+Popup that displays a sharable link to the current plan. Displayed when the SHARE button on 
+``ActionBar`` is clicked
 
 ### ``Distributions``
+Container for ``DistributionBars`` displaying the current credit fulfilments and degree progression.
+Displayed conditionally as a child of ``InfoMenu``
 
 ### ``DistributionBars``
+Displays the current degree progression based on filled credits. Individual requirements are shown
+using ``CourseBar`` components. Has button to open up ``FineDistribution`` displays for more detailed information.
 
 ### ``CourseBar``
+Displays a specific distribution's current progress and description on hover.
 
 ### ``FineDistribution``
+Component that displays the fine requirements of a specific distribution.
 
 ### ``InfoCards``
+Deprecated component.
 
 ### ``DistributionPopup``
-DEPRECATED
+Deprecated component.

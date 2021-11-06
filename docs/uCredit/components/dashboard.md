@@ -18,13 +18,6 @@ The component displaying the user's current plan course list, plan info, plan ma
 ### ``HandleUserEntryDummy``
 Handles user entry and login logic. Does not render anything (not visible on page).
 
-**Props**
-
-| Prop       | Type           | Description                                    |
-|------------|----------------|------------------------------------------------|
-| setLoginId | Function       | Callback used to set login id based on cookies |
-| id         | string \| null | ???                                            |
-
 ### ``InfoMenu``
 Info menu shows degree plan and degree information. Container for ``Distributions`` component.
 
@@ -32,12 +25,6 @@ TODO : image
 
 ### ``UserSection``
 Top bar containing user greeting and log out button.
-
-**Props**
-
-| Prop    | Type   | Description         |
-|---------|--------|---------------------|
-| loginId | string | The user's login id |
 
 TODO : image
 

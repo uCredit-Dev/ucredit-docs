@@ -20,22 +20,16 @@ These are the docs for the uCredit frontend!
 
 ## Component Documentation
 
-:::danger About Technical Details
-uCredit is still under development! The goal of these docs isn't to document 
-implementation details, but to provide a hollistic resource for understanding 
-the codebase at a high level.
-
-Documentation is NOT an excuse to write unreadable code!
-:::
-
 Some ideas:
   - Picture of component in context (from production website)
   - Description of the purpose of the component
   - Children of component which are other components
 
 Technical Details to Consider:
-  - File path
+  - File paths
   - Props and type definitinos
+  - State and uses
+  - Functions
   - Redux stores selected
   - Redux actions dispatched
   - Children components/conditions for rendering

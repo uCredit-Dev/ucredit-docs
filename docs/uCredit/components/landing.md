@@ -8,13 +8,13 @@ Landing Page Components, the first page users see when visiting ucredit.me
 ## Landing Page Components
 
 ### ``index``
-N/A
+Page container for the ``Banner``, ``Header``, ``Promo``, and ``Footer`` components
 
 ### ``Banner``
 ![PlanAdd](/img/components/landing/BannerFirstPage.png)
 ![PlanAdd](/img/components/landing/BannerSecondPage.png)
 
-Two pages for the Banner. First page is welcome page to Ucredit.
+A gallery of images for the Banner. First page is welcome page to uCredit.
 Second page is advertisement to join the team.
 
 ### ``Header``

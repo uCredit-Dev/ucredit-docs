@@ -25,7 +25,7 @@ const FeatureList: FeatureItem[] = [
         Explore frontend components in context, featuring pictures and high level descriptions
       </>
     ),
-    link: '/docs/uCredit/dashboard'
+    link: '/docs/uCredit/components/dashboard'
   },
   {
     title: 'Redux State',
@@ -62,7 +62,7 @@ function Feature({ title, image, description, link }: FeatureItem) {
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/uCredit/intro">
+              to={link}>
               {title}
             </Link>
           </div>

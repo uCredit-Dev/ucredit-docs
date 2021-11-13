@@ -17,14 +17,14 @@ The component displaying the user's current plan course list, plan info, plan ma
 Handles user entry and login logic. Does not render anything (not visible on page).
 
 ### ``InfoMenu``
+![Info Menu](/img/components/dashboard/info-menu.png)
+
 Info menu shows degree plan and degree information. Container for ``Distributions`` component.
 
-TODO : image
-
 ### ``UserSection``
-Top bar containing user greeting and log out button.
+![User Section](/img/components/dashboard/user-section.png)
 
-TODO : image
+Top bar containing user greeting and log out button.
 
 ## Course List Components
 
@@ -73,32 +73,50 @@ The react-beautiful-dnd wrapper for ``CourseComponent``. Used to enable drag and
 ## Right Column Components
 
 ### ``ActionBar``
+![Action Bar](/img/components/dashboard/action-bar.png)
+
 Top bar used for plan management. Used to add, remove, and switch plans.
 Contains ``PlanChoose`` and ``ShareLinksPopup``.
 
 ### ``PlanChoose``
+![Info Menu](/img/components/dashboard/plan-choose.png)
+
 Dropdown menu for selecting user plan to display on the dashboard.
 
 ### ``ShareLinksPopup``
+![Info Menu](/img/components/dashboard/share-links-popup.png)
+
 Popup that displays a sharable link to the current plan. Displayed when the SHARE button on 
 ``ActionBar`` is clicked
 
 ### ``Distributions``
+![Info Menu](/img/components/dashboard/distributions.png)
+
 Container for ``DistributionBars`` displaying the current credit fulfilments and degree progression.
 Displayed conditionally as a child of ``InfoMenu``
 
 ### ``DistributionBars``
+![Info Menu](/img/components/dashboard/distribution-bars.png)
+
 Displays the current degree progression based on filled credits. Individual requirements are shown
 using ``CourseBar`` components. Has button to open up ``FineDistribution`` displays for more detailed information.
 
 ### ``CourseBar``
+![Info Menu](/img/components/dashboard/course-bar.png)
+
 Displays a specific distribution's current progress and description on hover.
 
 ### ``FineDistribution``
+![Info Menu](/img/components/dashboard/fine-distribution.png)
+
 Component that displays the fine requirements of a specific distribution.
 
 ### ``InfoCards``
-Deprecated component.
+:::info
+This component has been deprecated
+:::
 
 ### ``DistributionPopup``
-Deprecated component.
+:::info
+This component has been deprecated
+:::

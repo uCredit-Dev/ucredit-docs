@@ -4,13 +4,11 @@ sidebar_position: 1
 ---
 
 # Dashboard Components
-
 The page for all Dashboard related components.
 
 ## Main Components
 
 ### ``Dashboard``
-
 ![Dashboard](/img/components/dashboard.png)
 
 The component displaying the user's current plan course list, plan info, plan management options, and popups.

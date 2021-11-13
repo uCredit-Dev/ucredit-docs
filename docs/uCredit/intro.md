@@ -9,42 +9,40 @@ sidebar_position: 1
 Visit the frontend repo at https://github.com/MattLiu-mygit/ucredit_frontend_typescript
 :::
 
-These are the docs for the uCredit frontend!
+:::caution
+uCredit is still under active development! Be open to and wary of change!
+When in doubt, consult the code directly for implementation details!
+:::
+
+These are the docs for the uCredit frontend, featuring information for the React components,
+Redux state management, and TypeScript types.
 
 ## **Documentation Goals**:
   - Help build a mental model for frontend components on website
   - Help understand repo structure and file organization
-  - Component reference (more qualitative)
+  - Component reference
   - TypeScript types reference
   - Redux store, actions, reducers, and selectors reference
 
 ## Component Documentation
-
-Some ideas:
+General inclusions
   - Picture of component in context (from production website)
   - Description of the purpose of the component
-  - Children of component which are other components
+  - Relative context of component (important children, parents, conditions for display, etc)
 
 Technical Details to Consider:
-  - File paths
-  - Props and type definitinos
-  - State and uses
-  - Functions
-  - Redux stores selected
-  - Redux actions dispatched
+  - File path
+  - Underlying data structure
+    - Props and type definitinos
+    - State and uses
+    - Redux stores selected
+    - Redux actions dispatched
+  - Helper functions
   - Children components/conditions for rendering
 
-:::danger
+### Using Code Blocks
 
-Never look a tulip in the eye.
-
-:::
-
-## Testing Markdown Features
-
-Here's a second test header. Hello team!
-
-### Some code in a subheading
+Use the following as reference for codeblocks:
 
 ```jsx title="path/to/some/file.tsx"
 // Here's my code
@@ -57,8 +55,6 @@ const SomeComponent = () => {
   )
 }
 ```
-
-### TypeScript Code Block
 
 ```typescript
 let myNumber: number = 6; // type annotation

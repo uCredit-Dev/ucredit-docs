@@ -7,14 +7,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'uCredit Docs',
-  tagline: 'docs docs docs!',
+  tagline: 'The official docs for uCredit!',
   url: 'https://ucredit.me/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'uCredit', // Usually your GitHub org/user name.
+  projectName: 'ucredit-docs', // Usually your repo name.
 
   presets: [
     [
@@ -55,13 +55,7 @@ const config = {
             position: 'left',
             label: 'uCredit',
           },
-          {
-            type: 'doc',
-            docId: 'tutorial/intro',
-            position: 'left',
-            label: 'Docusaurus',
-          },
-          {to: '/blog', label: 'Example Blog', position: 'left'},
+          // {to: '/blog', label: 'Example Blog', position: 'left'},
           {
             href: 'https://github.com/qin-andy/ucredit-docs',
             label: 'GitHub',
@@ -76,25 +70,21 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Intro',
                 to: '/docs/intro',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Hello',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Blog',
+                to: '/blog',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'GitHub',
+                href: 'https://github.com/qin-andy/ucredit-docs',
               },
             ],
           },

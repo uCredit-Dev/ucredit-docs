@@ -7,47 +7,49 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
   image: string;
   description: JSX.Element;
+  link?: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    image: '/img/undraw_docusaurus_mountain.svg',
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    image: '/img/undraw_docusaurus_tree.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
+    title: 'Components',
     image: '/img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Explore frontend components in context, featuring pictures and high level descriptions
       </>
     ),
+    link: '/docs/uCredit/dashboard'
+  },
+  {
+    title: 'Redux State',
+    image: '/img/undraw_docusaurus_tree.svg',
+    description: (
+      <>
+        Find information relating to the uCredit frontend's state management
+      </>
+    ),
+    link: '/docs/uCredit/redux/store'
+  },
+  {
+    title: 'Types',
+    image: '/img/undraw_docusaurus_mountain.svg',
+    description: (
+      <>
+        Read about the underlying structure of the data used by uCredit components and state
+      </>
+    ),
+    link: '/docs/uCredit/types'
   },
 ];
 
-function Feature({title, image, description}: FeatureItem) {
+function Feature({ title, image, description, link }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -56,6 +58,15 @@ function Feature({title, image, description}: FeatureItem) {
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
+        {link ?
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/uCredit/intro">
+              {title}
+            </Link>
+          </div>
+          : <></>}
       </div>
     </div>
   );

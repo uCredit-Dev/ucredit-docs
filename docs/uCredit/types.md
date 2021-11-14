@@ -129,6 +129,14 @@ export type Plan = {
   years: Year[];
 };
 ```
+The ```Plan``` type contains fields of  
+```_id``` representing the unique id of a student's Plan,
+```name``` representing the name that the user gave to the plan,
+```distribution_ids``` representing the ids of a degrees distributions in requirements
+```majors``` representing an array of majors that the student has,
+```user_id``` representing the id of a user,
+```numYears``` representing how many years the user has planned,
+```years``` represents an array of all semesters that a user takes in a certain year like freshman year
 
 ### ``Affiliation``
 

@@ -19,42 +19,13 @@ type CurrentPlanSlice = {
 };
 ```
 
-### Purpose of State
-
-Holds information regarding a student's Plan.
-
-#### Each State Type
-
-See [Types](../../types.md) section for more detail of each field
-
-#### Initial State
-
-```typescript
-const initialState: CurrentPlanSlice = {
-  plan: {
-    _id: "noPlan",
-    name: "",
-    majors: [],
-    distribution_ids: [],
-    user_id: "",
-    years: [],
-    numYears: 0,
-  },
-  distributions: [],
-  currentPlanCourses: [],
-  totalCredits: 0,
-  droppables: [],
-  importing: false,
-};
-```
-
-The initial state of a current plan starts with
-`plan` object being empty with no name, majors, or years,
-`distributions` being an empty array since user did not declare a major yet,
-`currentPlanCourses` being an empty array since no courses were added yet,
-`totalCredits` being 0 because of the no courses,
-`droppables` being an empty array that will help with logic of dragging and dropping years across screen
-`importing` being false, but can be changed if the user chooses to import a Plan from someplace else
+| Property           | Type                                          | Description                                                   |
+|--------------------|-----------------------------------------------|---------------------------------------------------------------|
+| plan               | Plan                                          | The current Plan that the user has                            |
+| distributions      | Array of a  mapping of string to requirements | Contains requirements that need to be completed for the major |
+| currentPlanCourses | Array of UserCourse                           | Contains list of all courses that user took                   |
+| totalCredits       | number                                        | Number of credits that the user has                           |
+| importing          | boolean                                       | Determines whether the plan was imported                      |
 
 ## Reducers
 

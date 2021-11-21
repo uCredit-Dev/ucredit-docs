@@ -40,6 +40,35 @@ type CurrentPlanSlice = {
 | ``updateDroppables``         | ``DroppableType``                                 | ``droppables``                                          |
 | ``updateImportingStatus``    | ``boolean``                                       | ``importing``                                           |
 
+### updateSelectedPlan
+Used to update the current plan that a user has
+
+| Component            | Description                                                                                           |
+|----------------------|-------------------------------------------------------------------------------------------------------|
+| HandleUserEntryDummy | Makes initial plan of user if there are initially none in ``processYears``                            |
+| HandleUserEntryDummy | Updates current plan from an imported plan in ``addImportedYears``                                    |
+| HandleUserEntryDummy | Updates current plan when courses are finished importing in ``handleFinishAdding``                    |
+| HandleUserEntryDummy | After receiving all plans from a user, if there are no plans then initialize a plan in ```getPlans``` |
+| CourseList           | Updates years of a plan in ```swapYear```                                                             |
+| CourseList           | Updates courses of a plan in ```swapCourse```                                                         |
+| Semester             | Updates plan when a new plan is made from the user in ```handlePostResponse```                        |
+| YearComponent        | Updates plan with new year names in ```updateName```                                                  |
+| YearSettingsDropdown | Updates plan with a new year in ```handleYearChange```                                                |
+| ActionBar            | Updates name of plan in ```updateName```                                                              |
+| ActionBar            | Updates plan when a year is added to the plan in ```addNewYear```                                     |
+| PlanChoose           | Changes current plan to new one user selected in ```handlePlanChange```                               |
+| CourseDisplayPopup   | Update plan in ```handlePostAddCourse```                                                              |
+| DeleteCoursePopup    | Update plan after deleting course in ```activateDeleteCourse```                                       |
+| DeletePlanPopup      | Uses different plan after deleting current plan in ```deleteCurrentPlan```                            |
+| DeleteYearPopup      | Updates plan after a year is deleted from it in ```activateDeleteYear```                              |
+| CourseDisplay        | Updates plan after years are changed in ```updateDistributions```                                     |
+| Placeholder          | Updates plan after years are changed in ```handleUpdateResponse```                                    |
+| SisCourse            | Updates plan after years are changed in ```handleUpdate```                                            |
+| GenerateNewPlan      | Updates new plan after making distributions                                                           |
+
+### updateDistributions
+Used to update the distributions of a plan that a user has
+
 ## Selectors
 
 ```typescript

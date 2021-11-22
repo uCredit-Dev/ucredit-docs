@@ -69,6 +69,27 @@ Used to update the current plan that a user has
 ### updateDistributions
 Used to update the distributions of a plan that a user has
 
+| Component | Description                                                        |
+|-----------|--------------------------------------------------------------------|
+| InfoMenu  | Used in ```setDistributions``` which is a wrapper for this reducer |
+
+### updateCurrentPlanCourses
+Used to update the list of courses that a user is taking in a plan.
+
+| Component            | Description                                                                |
+|----------------------|----------------------------------------------------------------------------|
+| HandleUserEntryDummy | Used in ```handleFinishAdding``` when courses are finished importing       |
+| CourseList           | Used in ```useEffect``` when certain fields are updated                    |
+| CourseList           | Used in ```updatePlanCourses``` after dragging semesters                   |
+| Semester             | Used in ```handlePostResponse``` after adding a new course                 |
+| CourseDisplayPopup   | Used in ```handlePostAddCourse``` after adding a new course                |
+| CourseDisplay        | Used in ```updateDistributions``` when a course in a distribution is added |
+| Placeholder          | Used in ```handleUpdateResponse``` when updating a course                  |
+| SisCourse            | Used in ```handleUpdate``` when deleting old course and adding new         |
+
+### updateTotalCredits
+Used to update the total credits a user has
+
 ## Selectors
 
 ```typescript

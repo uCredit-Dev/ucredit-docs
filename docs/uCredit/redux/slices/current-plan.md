@@ -181,5 +181,21 @@ Used to change the flag of whether something was imported or not.
 
 ### selectTotalCredits
 
+| Component     | Description                                               |
+|---------------|-----------------------------------------------------------|
+| Distributions | Helps in determining how filled up the Course Bar will be |
+| CourseDisplay | Helps in updating the total credits when changing         |
 
+### selectDroppables
+
+| Component  | Description                                                   |
+|------------|---------------------------------------------------------------|
+| CourseList | Helps in displaying the courses with the drag and drop effect |
+
+### selectImportingStatus
+
+| Component       | Description                                      |
+|-----------------|--------------------------------------------------|
+| index           | Conditional for adding plan from import          |
+| GenerateNewPlan | Conditional for rendering popup of creating plan |
 

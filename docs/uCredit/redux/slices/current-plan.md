@@ -88,43 +88,98 @@ Used to update the list of courses that a user is taking in a plan.
 | SisCourse            | Used in ```handleUpdate``` when deleting old course and adding new         |
 
 ### updateTotalCredits
-Used to update the total credits a user has
+Used to update the total credits a user has.
+
+| Component     | Description                                                        |
+|---------------|--------------------------------------------------------------------|
+| CourseList    | Used in ```useEffect``` when generating year objects               |
+| CourseDisplay | Used in ```updateDistributions``` when distributions are fulfilled |
+
+### resetCurrentPlan
+Used to reset the plan to an empty state.
+
+| Component   | Description                                        |
+|-------------|----------------------------------------------------|
+| UserSection | Used when user log ins and needs to reset the plan |
+
+### updateDroppables
+Used to edit the drop logic with courses and semesters.
+
+| Component     | Description                                                        |
+|---------------|--------------------------------------------------------------------|
+| CourseList    | Used in ```useEffect``` when generating year objects               |
+| CourseDisplay | Used in ```updateDistributions``` when distributions are fulfilled |
+
+### updateImportingStatus
+Used to change the flag of whether something was imported or not.
+
+| Component            | Description                                                                                                            |
+|----------------------|------------------------------------------------------------------------------------------------------------------------|
+| HandleUserEntryDummy | Used in ```addImportedYears``` and sets to ```false``` if nothing was imported                                         |
+| HandleUserEntryDummy | Used in ```handleFinishAdding``` and sets to ```false``` if no newly imported courses were added                       |
+| HandleUserEntryDummy | Used in ```useEffect``` on the first time page is loaded and sets to ```true``` when successful in loading user's data |
+| HandleUserEntryDummy | Used in ```handleExistingUser``` if failed to load in user's data and sets to ```false```                              |
 
 ## Selectors
 
-```typescript
-const selectPlan = (state: RootState) => state.currentPlan.plan;
-```
+| Selector                       | Property                 |
+|--------------------------------|--------------------------|
+| ```selectPlan```               | ```plan```               |
+| ```selectDistributions```      | ```distributions```      |
+| ```selectCurrentPlanCourses``` | ```currentPlanCourses``` |
+| ```selectTotalCredits```       | ```totalCredits```       |
+| ```selectDroppables```         | ```droppables```         |
+| ```selectImportingStatus```    | ```importing```          |
 
-Retrieves student's plan
+### selectPlan
 
-```typescript
-const selectDistributions = (state: RootState) => state.currentPlan.distributions;
-```
+| Component            | Description                                                             |
+|----------------------|-------------------------------------------------------------------------|
+| App                  | Gives starting plan when the website begins                             |
+| HandleUserEntryDummy | Gives starting plan when the login begins                               |
+| InfoMenu             | Gives starting plan when Info Menu (degree plan and information) begins |
+| CourseComponent      | Gives starting plan when a Course is created                            |
+| CourseList           | Gives starting plan when CourseList is created                          |
+| Semester             | Gives starting plan when Semester is created                            |
+| YearComponent        | Gives starting plan when YearComponent is created                       |
+| YearSettingsDropdown | Gives starting plan when YearSettingsDropdown is created                |
+| ActionBar            | Gives starting plan when ActionBar is created                           |
+| PlanChoose           | Gives starting plan when drop down of choosing a plan is created        |
+| DeleteCoursePopup    | Gives starting plan when pop up for deleting a course happens           |
+| DeletePlanPopup      | Gives starting plan when pop up for deleting a plan happens             |
+| DeleteYearPopup      | Gives starting plan when pop up for deleting a year happens             |
+| Search               | Gives starting plan when searching for a course happens                 |
+| PrereqDisplay        | Gives starting plan when prereqs of a course are shown                  |
+| Form                 | Gives starting plan when search form is submitted                       |
+| CourseDisplay        | Gives starting plan when selecting a course after searching             |
+| PlaceHolder          | Gives starting plan when a placeholder is needed for a plan             |
+| SisCourse            | Gives starting plan when looking at a SIS course                        |
 
-Retrives the distributions of a student's plan
+### selectDistributions
 
-```typescript
-const selectCurrentPlanCourses = (state: RootState) => state.currentPlan.currentPlanCourses;
-```
+| Component | Description                                              |
+|-----------|----------------------------------------------------------|
+| InfoMenu  | Gives distributions when InfoMenu starts                 |
+| CourseBar | Gives the distributions when the bar needs to be updated |
 
-Retrieves the courses in the student's plan
+### selectCurrentPlanCourses
 
-```typescript
-const selectTotalCredits = (state: RootState) => state.currentPlan.totalCredits;
-```
+| Component            | Description                                                                                |
+|----------------------|--------------------------------------------------------------------------------------------|
+| HandleUserEntryDummy | Used to update the currentCourses a user has when logging in                               |
+| InfoMenu             | Used to update the currentCourses a user has fulfilled distributions                       |
+| CourseComponent      | Used to determine if a user has the pre reqs completed before adding the course            |
+| CourseList           | Used to retrieve a course based on id, to swap courses based on droppables, update courses |
+| Semester             | Used to update the databse when a post request is made                                     |
+| CourseBar            | Used to help with deciding how to fill up the credit bar                                   |
+| FineDistribution     | Used to update the fine distributions bar                                                  |
+| CourseDisplayPopup   | Used to update the currentPlanCourses after adding courses                                 |
+| PrereqDisplay        | Used to help display pre reqs for courses and whether satisfied                            |
+| CourseDisplay        | Used to update the currentPlanCourses after distributions were updated                     |
+| PlaceHolder          | Used to update the courses after deleting a course and adding new                          |
+| SisCourse            | Used to update the courses after deleting a course and adding new in SIS                   |
 
-Retrieves the total credits that a student has
+### selectTotalCredits
 
-```typescript
-const selectDroppables = (state: RootState) => state.currentPlan.droppables;
-```
 
-Retrieves the droppabble courses from the student's plan
-
-```typescript
-const selectImportingStatus = (state: RootState) => state.currentPlan.importing;
-```
-
-Retrieves the status of whether the plan was imported from somewhere or not
 

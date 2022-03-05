@@ -4,10 +4,10 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
-import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
-import Link from '@docusaurus/Link';
+import React from "react";
+import clsx from "clsx";
+import styles from "./HomepageFeatures.module.css";
+import Link from "@docusaurus/Link";
 
 type FeatureItem = {
   title: string;
@@ -18,55 +18,61 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Components',
-    image: '/img/undraw_docusaurus_react.svg',
+    title: "Components",
+    image: "/img/undraw_docusaurus_react.svg",
     description: (
       <>
-        Explore frontend components in context, featuring pictures and high level descriptions
+        Explore frontend components in context, featuring pictures and high
+        level descriptions
       </>
     ),
-    link: '/docs/uCredit/components/dashboard'
+    link: "/docs/uCredit/components/dashboard",
   },
   {
-    title: 'Redux State',
-    image: '/img/undraw_docusaurus_tree.svg',
+    title: "Redux State",
+    image: "/img/undraw_docusaurus_tree.svg",
     description: (
-      <>
-        Find information relating to the uCredit frontend's state management
-      </>
+      <>Find information relating to the uCredit frontend's state management</>
     ),
-    link: '/docs/uCredit/redux/store'
+    link: "/docs/uCredit/redux/store",
   },
   {
-    title: 'Types',
-    image: '/img/undraw_docusaurus_mountain.svg',
+    title: "Types",
+    image: "/img/undraw_docusaurus_mountain.svg",
     description: (
       <>
-        Read about the underlying structure of the data used by uCredit components and state
+        Read about the underlying structure of the data used by uCredit
+        components and state
       </>
     ),
-    link: '/docs/uCredit/types'
+    link: "/docs/uCredit/types",
+  },
+  {
+    title: "Backend API",
+    image: "/img/undraw_docusaurus_mountain.svg",
+    description: <>Read about our backend API.</>,
+    link: "/docs/uCredit/api",
   },
 ];
 
 function Feature({ title, image, description, link }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
-        {link ?
+        {link ? (
           <div className={styles.buttons}>
-            <Link
-              className="button button--secondary button--lg"
-              to={link}>
+            <Link className="button button--secondary button--lg" to={link}>
               {title}
             </Link>
           </div>
-          : <></>}
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

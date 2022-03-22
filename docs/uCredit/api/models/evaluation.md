@@ -24,7 +24,7 @@ A course evaluation. This is taken from the api of JHUReviews with permission fr
 
 ## Example
 
-```
+```js
 {
   "_id":{"$oid":"61dde4d2ae28384820740976"},
   "i":["Amy Christine Miranda"],

@@ -20,7 +20,7 @@ A user plan schema.
 
 ## Example
 
-```
+```js
 {
   _id: { $oid: "61cce47ca2ec790004427200" },
   majors: ["B.S. Computer Science (OLD - Pre-2021)"],

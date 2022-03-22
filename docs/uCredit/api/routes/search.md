@@ -27,22 +27,22 @@ Gets all SIS courses in our DB within a specific interval.
 
 Searches for a list of courses based on a given query and parameters.
 
-|            | Name       | Type          | Description                                                |
-| ---------- | ---------- | ------------- | ---------------------------------------------------------- |
-| **Query**  | query      | `String`      | search query                                               |
-|            | school     | `String`      | school to filter courses with                              |
-|            | department | `String`      | department to filter courses with of                       |
-|            | term       | `String`      | semester + year combination to filter courses with in      |
-|            | areas      | `String`      | areas to filter courses with in                            |
-|            | wi         | `String`      | whether course to search for is a written intensive or not |
-|            | credits    | `String`      | credit counts to filter courses with                       |
-|            | tags       | `String`      | tags to filter courses with                                |
-|            | level      | `String`      | course level to filter courses with                        |
-| **Output** |            | `SISCourse[]` | searched and filtered list of SIS courses                  |
+|            | Name       | Type          | Description                                                    |
+| ---------- | ---------- | ------------- | -------------------------------------------------------------- |
+| **Query**  | query      | `String`      | search query (course name or number)                           |
+|            | school     | `String`      | school to filter courses with                                  |
+|            | department | `String`      | department to filter courses with of                           |
+|            | term       | `String`      | semester + year combination to filter courses with in          |
+|            | areas      | `String`      | areas to filter courses with in                                |
+|            | wi         | `String`      | whether course to search for is a written intensive or not     |
+|            | credits    | `String`      | credit counts to filter courses with                           |
+|            | tags       | `String`      | tags to filter courses with                                    |
+|            | level      | `String`      | course level to filter courses with                            |
+| **Output** |            | `SISCourse[]` | searched and filtered list of SIS courses with their versions. |
 
 ### `GET` `/api/searchVersion`
 
-Searches for a specific version of a course.
+Searches for a specific version of a course. All three queries are required, returns the specific version of a specific course.
 
 |            | Name    | Type        | Description                                   |
 | ---------- | ------- | ----------- | --------------------------------------------- |

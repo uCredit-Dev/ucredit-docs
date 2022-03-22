@@ -13,7 +13,7 @@ A feature experiment.
 
 ## Example
 
-```
+```js
 {
   _id: { $oid: "61d9be16b579ac5e80991d24" },
   blacklist: [],

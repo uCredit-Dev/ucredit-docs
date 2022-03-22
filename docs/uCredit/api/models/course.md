@@ -37,7 +37,7 @@ A user course object.
 
 ## Example
 
-```
+```js
 {
   "_id":{"$oid":"61ccf7f4723b840004850ea3"},
   "termOffered":[],

@@ -26,7 +26,7 @@ A specific version of a SIS course at a particular semester for a particular yea
 
 ## Example
 
-```
+```js
 {
   department: "AS History of Art",
   tags: ["HART-MED"],

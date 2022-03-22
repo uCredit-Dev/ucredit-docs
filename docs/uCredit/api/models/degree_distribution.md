@@ -24,7 +24,7 @@ A requirement that must be satisfied for a degree.
 
 ## Example
 
-```
+```js
 {
   pathing: false,
   user_select: false,

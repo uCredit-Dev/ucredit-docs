@@ -18,7 +18,7 @@ A model of a SIS course.
 
 ## Example
 
-```
+```js
 {
   _id: { $oid: "61d123ac0a0c831b9af9aba5" },
   terms: ["Fall 2018"],

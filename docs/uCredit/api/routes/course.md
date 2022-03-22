@@ -5,6 +5,8 @@ sidebar_position: 6
 
 # Course Routes
 
+import {course1, courseList} from "../sampleObjects";
+
 ### `GET` `/api/coursesByPlan/:plan_id`
 
 Gets a list of courses for a given plan.
@@ -13,6 +15,12 @@ Gets a list of courses for a given plan.
 | ---------- | ------- | ---------- | ---------------------------------------- |
 | **Params** | plan_id | `String`   | id of plan for which to get courses from |
 | **Output** |         | `Course[]` | list of courses from the specific plan   |
+
+#### Sample output
+
+<samp>
+  <pre>{JSON.stringify(courseList, null, 2)}</pre>
+</samp>
 
 ### `GET` `/api/coursesByDistribution/:distribution_id`
 
@@ -23,6 +31,11 @@ Gets a list of courses for a given distribution
 | **Params** | distribution_id | `String`   | id of distribution for which to get courses from |
 | **Output** |                 | `Course[]` | list of courses from the specific plan           |
 
+#### Sample output
+
+<samp>
+  <pre>{JSON.stringify(courseList, null, 2)}</pre>
+</samp>
 ### `GET` `/api/courses/:course_id`
 
 Gets a course by course id.
@@ -43,24 +56,59 @@ Gets a list of courses in a plan for a specific term.
 |            | term    | `String`   | semester of courses to get    |
 | **Output** |         | `Course[]` | list of courses to retrieve   |
 
+#### Sample output
+
+<samp>
+  <pre>{JSON.stringify(courseList, null, 2)}</pre>
+</samp>
+
 ### `POST` `/api/courses`
 
-Posts a new course to the database.
+Posts a new course to the database. Associated distributions, plan & year is also updated.
 
-|            | Name      | Type        | Description                                  |
-| ---------- | --------- | ----------- | -------------------------------------------- |
-| **Params** | ...Course | `...Course` | all attributes of the new course to be added |
-| **Output** |           | `Course`    | newly added course                           |
+|            | Name            | Type        | Description                                                                              |
+| ---------- | --------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| **Body**   | title           | `String`    | title of course to add                                                                   |
+|            | plan_id         | `String`    | plan the course is part of                                                               |
+|            | term            | `String`    | term the course is part of                                                               |
+|            | termOffered     | `?String[]` | all terms the course was offered                                                         |
+|            | year            | `String`    | year name (ie. "Sophomore"), must match the name of the year associated with the year_id |
+|            | version         | `?String`   | version of the course amongst its SIS course versions                                    |
+|            | number          | `?String`   | course number                                                                            |
+|            | department      | `?String`   | course department                                                                        |
+|            | tags            | `?String[]` | an array of course tags                                                                  |
+|            | area            | `?String`   | course areas                                                                             |
+|            | credits         | `Number`    | course credit count                                                                      |
+|            | wi              | `?Boolean`  | whether course is a written intensive                                                    |
+|            | taken           | `?Boolean`  | whether course has been taken                                                            |
+|            | preReq          | `?Array`    | course prereqs                                                                           |
+|            | isPlaceholder   | `?Boolean`  | whether course is a placeholder                                                          |
+|            | isTransfer      | `?Boolean`  | whether course is a transfer course                                                      |
+|            | ratings         | `?Array`    | course ratings                                                                           |
+|            | distributionIds | `String[]`  | course distributions course is part of                                                   |
+|            | year_id         | `String`    | year id of year the course is part of                                                    |
+|            | user_id         | `String`    | user who owns the plan the course is part of                                             |
+|            | forceSatisfied  | `?String`   | jelps determine if course is force-satisfied                                             |
+|            | expireAt        | `?Date`     | date course should be deleted by (for guest users)                                       |
+| **Output** |                 | `Course`    | newly added course                                                                       |
+
+<samp>
+  <pre>{JSON.stringify(course1, null, 2)}</pre>
+</samp>
 
 ### `PATCH` `/api/courses/changeStatus/:course_id`
 
-Updates a taken status of course in the database.
+Changes the "taken" status of a course, update credits & satisfaction status of the associated distributions.
 
 |            | Name      | Type      | Description                         |
 | ---------- | --------- | --------- | ----------------------------------- |
 | **Params** | course_id | `String`  | id of course to be updated          |
 | **Body**   | taken     | `Boolean` | new status of aforementioned course |
 | **Output** |           | `Course`  | updated course                      |
+
+<samp>
+  <pre>{JSON.stringify(course1, null, 2)}</pre>
+</samp>
 
 ### `PATCH` `/api/courses/dragged`
 
@@ -74,11 +122,21 @@ Updates a year and semester of course in the database from previous location to 
 |            | newTerm  | `String` | new term of course             |
 | **Output** |          | `Course` | updated course                 |
 
+#### Sample output
+
+<samp>
+  <pre>{JSON.stringify(course1, null, 2)}</pre>
+</samp>
+
 ### `DELETE` `/api/courses/:course_id`
 
-Deletes a specific course from the database.
+Deletes a specific course from the database. Credit & satisfication status of the associated distributions are recalculated.
 
 |            | Name      | Type     | Description                |
 | ---------- | --------- | -------- | -------------------------- |
 | **Params** | course_id | `String` | id of course to be deletes |
 | **Output** |           | `Course` | deleted course             |
+
+<samp>
+  <pre>{JSON.stringify(course1, null, 2)}</pre>
+</samp>

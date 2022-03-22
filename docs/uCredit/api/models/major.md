@@ -20,7 +20,7 @@ A degree schema.
 
 ## Example
 
-```
+```js
 {
   _id: { $oid: "61ddb0e735517ca56c761912" },
   degree_name: "B.S. Biomedical Engineering",

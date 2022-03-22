@@ -21,7 +21,7 @@ A user schema
 
 ## Example
 
-```
+```js
 {
   _id: "mockUser",
   plan_ids: [{ $oid: "623659ddb8316b8b54f77815" }],

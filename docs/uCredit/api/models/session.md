@@ -17,7 +17,7 @@ A login session
 
 ## Example
 
-```
+```js
 {
   "_id":"someStudent42",
   "__v":0,

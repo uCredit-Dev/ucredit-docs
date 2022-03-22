@@ -16,7 +16,7 @@ Gets a list of year ids for a given plan.
 
 ### `POST` `/api/years`
 
-Creates a new year based on a given name, plan_id, user_id, and year number.
+Creates a new year based on a given name, plan_id, user_id, and year number. A year will be automatically added to the end of the year array of the plan object.
 
 |            | Name    | Type     | Description                           |
 | ---------- | ------- | -------- | ------------------------------------- |
@@ -38,7 +38,7 @@ Creates a new year based on a given name, plan_id, user_id, and year number.
 
 ### `PATCH` `/api/years/updateName`
 
-Updates the name of a specific year.
+Updates the name of a specific year. Updates plan name and the year field of its associated courses.
 
 |            | Name    | Type     | Description                   |
 | ---------- | ------- | -------- | ----------------------------- |
@@ -48,7 +48,7 @@ Updates the name of a specific year.
 
 ### `DELETE` `/api/years/:year_id`
 
-Deletes a year.
+Deletes a year. By deleting a year, all associated courses are deleted from the database.
 
 |            | Name    | Type     | Description          |
 | ---------- | ------- | -------- | -------------------- |

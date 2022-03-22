@@ -19,7 +19,7 @@ A plan review schema. Plan reviews serve as a way to track the progress of a pla
 
 ## Example
 
-```
+```js
 {
   _id: { $oid: "62365a80b8316b8b54f7785e" },
   reviewee_id: "mockUser",

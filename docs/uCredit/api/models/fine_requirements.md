@@ -19,7 +19,7 @@ A fine requirement of a degree distribution
 
 ## Example
 
-```
+```js
 {
   exclusive: false,
   _id: { $oid: "61ddb0e735517ca56c761925" },

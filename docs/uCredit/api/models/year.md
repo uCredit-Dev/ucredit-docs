@@ -20,7 +20,7 @@ A plan year schema
 
 ## Example
 
-```
+```js
 {
   _id: { $oid: "61cce47ca2ec790004427209" },
   courses: [{ $oid: "61ccf7f4723b840004850ea3" }],

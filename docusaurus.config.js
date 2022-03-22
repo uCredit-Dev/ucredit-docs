@@ -1,39 +1,39 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'uCredit Docs',
-  tagline: 'The official docs for uCredit!',
-  url: 'https://ucredit.me/',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo.png',
-  organizationName: 'uCredit', // Usually your GitHub org/user name.
-  projectName: 'ucredit-docs', // Usually your repo name.
+  title: "uCredit Docs",
+  tagline: "The official docs for uCredit!",
+  url: "https://ucredit.me/",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/logo.png",
+  organizationName: "uCredit", // Usually your GitHub org/user name.
+  projectName: "ucredit-docs", // Usually your repo name.
+  themes: ["@docusaurus/theme-live-codeblock"],
 
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: 'https://github.com/qin-andy/ucredit-docs',
+          editUrl: "https://github.com/qin-andy/ucredit-docs",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/qin-andy/ucredit-docs',
+          editUrl: "https://github.com/qin-andy/ucredit-docs",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -43,61 +43,61 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'uCredit Docs',
+        title: "uCredit Docs",
         logo: {
-          alt: 'uCredit Logo',
-          src: 'img/logo.png',
+          alt: "uCredit Logo",
+          src: "img/logo.png",
         },
         items: [
           {
-            type: 'doc',
-            docId: 'uCredit/intro',
-            position: 'left',
-            label: 'uCredit',
+            type: "doc",
+            docId: "uCredit/intro",
+            position: "left",
+            label: "uCredit",
           },
           // {to: '/blog', label: 'Example Blog', position: 'left'},
           {
-            href: 'https://github.com/qin-andy/ucredit-docs',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/qin-andy/ucredit-docs",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Intro',
-                to: '/docs/intro',
+                label: "Intro",
+                to: "/docs/intro",
               },
             ],
           },
           {
-            title: 'Hello',
+            title: "Hello",
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: "Blog",
+                to: "/blog",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/qin-andy/ucredit-docs',
+                label: "GitHub",
+                href: "https://github.com/qin-andy/ucredit-docs",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: "Blog",
+                to: "/blog",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/qin-andy/ucredit-docs',
+                label: "GitHub",
+                href: "https://github.com/qin-andy/ucredit-docs",
               },
             ],
           },

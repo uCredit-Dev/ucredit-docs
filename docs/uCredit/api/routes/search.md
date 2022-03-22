@@ -13,6 +13,10 @@ Gets SIS courses in given intervals.
 | ---------- | ---- | ------------- | ----------------------- |
 | **Output** |      | `SISCourse[]` | list of all SIS courses |
 
+#### Sample Output
+
+<a href="https://ucredit-dev.herokuapp.com/api/search/all">Click here</a>
+
 ### `GET` `/api/search/skip/:num`
 
 Gets all SIS courses in our DB within a specific interval.
@@ -22,6 +26,10 @@ Gets all SIS courses in our DB within a specific interval.
 | **Params** | num  | `Number`      | interval number                     |
 | **Query**  | mod  | `Number`      | interval size                       |
 | **Output** |      | `SISCourse[]` | an interval list of all SIS courses |
+
+#### Sample Output
+
+<a href="https://ucredit-dev.herokuapp.com/api/search/skip/1?mod=5">Click here</a>
 
 ### `GET` `/api/search`
 
@@ -40,6 +48,14 @@ Searches for a list of courses based on a given query and parameters.
 |            | level      | `String`      | course level to filter courses with                            |
 | **Output** |            | `SISCourse[]` | searched and filtered list of SIS courses with their versions. |
 
+#### Sample Output
+
+import {SISCourseList, SISCourse3} from "../sampleObjects";
+
+<samp>
+  <pre>{JSON.stringify(SISCourseList, null, 2)}</pre>
+</samp>
+
 ### `GET` `/api/searchVersion`
 
 Searches for a specific version of a course. All three queries are required, returns the specific version of a specific course.
@@ -50,3 +66,9 @@ Searches for a specific version of a course. All three queries are required, ret
 |            | title   | `String`    | title of course to search for                 |
 |            | number  | `String`    | number of course to search for                |
 | **Output** |         | `SISCourse` | A SIS course with a single queried version.   |
+
+#### Sample Output
+
+<samp>
+  <pre>{JSON.stringify(SISCourse3, null, 2)}</pre>
+</samp>

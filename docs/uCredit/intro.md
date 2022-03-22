@@ -18,28 +18,33 @@ These are the docs for the uCredit frontend, featuring information for the React
 Redux state management, and TypeScript types.
 
 ## **Documentation Goals**:
-  - Help build a mental model for frontend components on website
-  - Help understand repo structure and file organization
-  - Component reference
-  - TypeScript types reference
-  - Redux store, actions, reducers, and selectors reference
+
+- Help build a mental model for frontend components on website
+- Help build a mental model for the backend API of the website
+- Help understand repo structure and file organization
+- Component reference
+- TypeScript types reference
+- Redux store, actions, reducers, and selectors reference
+- Backend model and API reference
 
 **Todo List**
-  - TypeScript types descriptions
-  - Redux
-    - State descriptions
-    - Reducer/Action descriptions
-    - Selector descriptions
-  - Component technical detail descriptions
-  - Links between interrelated components
+
+- TypeScript types descriptions
+- Redux
+  - State descriptions
+  - Reducer/Action descriptions
+  - Selector descriptions
+- Component technical detail descriptions
+- Links between interrelated components
 
 Other misc ideas:
-  - Apply for algolia search
-  - API documentation
-  - Design documentation
-  - uCredit tutorial
-  - Components in context breakdown
-  - GIFs?
+
+- Apply for algolia search
+- API documentation
+- Design documentation
+- uCredit tutorial
+- Components in context breakdown
+- GIFs?
 
 :::caution
 Be wary of technical details! While having a centralized reference would be ideal,
@@ -53,43 +58,53 @@ documented the codebase itself is. The best source of information should be read
 :::
 
 ## Component Documentation Guidelines
+
 General inclusions
-  - Picture of component in context (from production website)
-  - Description of the purpose of the component
-  - Relative context of component (important children, parents, conditions for display, etc)
+
+- Picture of component in context (from production website)
+- Description of the purpose of the component
+- Relative context of component (important children, parents, conditions for display, etc)
 
 Technical Details to Consider:
-  - File path
-  - Underlying data structure
-    - Props and type definitinos
-    - State and uses
-    - Redux stores selected
-    - Redux actions dispatched
-  - Helper functions
-  - Children components/conditions for rendering
+
+- File path
+- Underlying data structure
+  - Props and type definitinos
+  - State and uses
+  - Redux stores selected
+  - Redux actions dispatched
+- Helper functions
+- Children components/conditions for rendering
 
 ## Type Documentation Guidelines
+
 General inclusions
-  - Code block of all included types
-  - Short description of what type models and how its used
+
+- Code block of all included types
+- Short description of what type models and how its used
 
 ## Redux Documenation Guidelines
+
 **Slices**
-  - Code block of state types
-  - Overview of purpose of slice
-  - Description of what each aspect of state type represents
-  - Description of initial state
+
+- Code block of state types
+- Overview of purpose of slice
+- Description of what each aspect of state type represents
+- Description of initial state
 
 **Actions/Reducers**
-  - Description of payload actions for each reducer
-  - Description of how each reducer updates the state
-  - Context for where the reducer is called (components which dispatch actions to this reducer)
+
+- Description of payload actions for each reducer
+- Description of how each reducer updates the state
+- Context for where the reducer is called (components which dispatch actions to this reducer)
 
 **Selectors**
-  - Description of which state property the selector selects
-  - General context for how that property may be used by a component using the selector
+
+- Description of which state property the selector selects
+- General context for how that property may be used by a component using the selector
 
 ## Using Code Blocks
+
 Use the following as reference for codeblocks:
 
 ```jsx title="path/to/some/file.tsx"
@@ -100,25 +115,25 @@ const SomeComponent = () => {
       <h1>Hello!</h1>
       <p>This is an example component. Pretty neat.</p>
     </div>
-  )
-}
+  );
+};
 ```
 
 ```typescript
 let myNumber: number = 6; // type annotation
 let mySum = myNumber + 3; // type inference
 
-myNumber = 'Invalid Assignment'; // the ts compiler will catch this error!
+myNumber = "Invalid Assignment"; // the ts compiler will catch this error!
 myNumber = 3; // this would be fine though
 
 // type annotations in function signatures
 const funnyAdd = (x: number, y: number): number => {
   return x + y; // this is fine!
-}
+};
 
 const funnyAdd2 = (x: number, y: number): number => {
-  return 'Error'; // compiler will catch this
-}
+  return "Error"; // compiler will catch this
+};
 
-funnyAdd(myNumber, 'Hello'); // compiler will catch this
+funnyAdd(myNumber, "Hello"); // compiler will catch this
 ```

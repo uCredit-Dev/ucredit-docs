@@ -26,7 +26,7 @@ const FeatureList: FeatureItem[] = [
         level descriptions
       </>
     ),
-    link: "/docs/uCredit/components/dashboard",
+    link: "/docs/uCredit/frontend/components/dashboard",
   },
   {
     title: "Redux State",
@@ -34,7 +34,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>Find information relating to the uCredit frontend's state management</>
     ),
-    link: "/docs/uCredit/redux/store",
+    link: "/docs/uCredit/frontend/redux/store",
   },
   {
     title: "Types",
@@ -45,13 +45,19 @@ const FeatureList: FeatureItem[] = [
         components and state
       </>
     ),
-    link: "/docs/uCredit/types",
+    link: "/docs/uCredit/frontend/types",
   },
   {
-    title: "Backend API",
+    title: "Backend API Models",
     image: "/img/undraw_docusaurus_mountain.svg",
     description: <>Read about our backend API.</>,
-    link: "/docs/uCredit/api",
+    link: "/docs/uCredit/api/models/intro",
+  },
+  {
+    title: "Backend API Routes",
+    image: "/img/undraw_docusaurus_mountain.svg",
+    description: <>Read about our backend API.</>,
+    link: "/docs/uCredit/api/routes/intro",
   },
 ];
 

@@ -58,10 +58,41 @@ Creates a plan review request if a review request hasn't been created. Returns 4
 
 Confirms a plan review request. Returns 400 if missing Body field, 409 if plan_id is already added in the reviewer’s whitelisted array.
 
-|            | Name      | Type         | Description                                            |
-| ---------- | --------- | ------------ | ------------------------------------------------------ |
-| **Body**   | review_id | `String`     | id of review to confirm                                |
-| **Output** |           | `PlanReview` | Confirmed review object, status changed to “ACCEPTED”. |
+|            | Name      | Type         | Description                                               |
+| ---------- | --------- | ------------ | --------------------------------------------------------- |
+| **Body**   | review_id | `String`     | id of review to confirm                                   |
+| **Output** |           | `PlanReview` | Confirmed review object, status changed to “UNDERREVIEW”. |
+
+#### Sample Output
+
+<samp>
+  <pre>{JSON.stringify(planReview2, null, 2)}</pre>
+</samp>
+
+### `POST` `/api/planReview/confirm`
+
+Approve or reject a plan. Returns 400 if Body field is invalid, 404 if review_id is not found.
+
+|            | Name      | Type         | Description                                                   |
+| ---------- | --------- | ------------ | ------------------------------------------------------------- |
+| **Body**   | review_id | `String`     | id of the planReview object                                   |
+|            | status    | `String`     | "APPROVED" or "REJECTED"                                      |
+| **Output** |           | `PlanReview` | planReview object status changed according to the body input. |
+
+#### Sample Output
+
+<samp>
+  <pre>{JSON.stringify(planReview3, null, 2)}</pre>
+</samp>
+
+### `POST` `/api/planReview/repeatReview`
+
+Re-request a plan review. Returns 400 if review status is "PENDING", 404 if review_id is not found.
+
+|            | Name      | Type         | Description                                    |
+| ---------- | --------- | ------------ | ---------------------------------------------- |
+| **Body**   | review_id | `String`     | id of the planReview object                    |
+| **Output** |           | `PlanReview` | planReview object status changed to "PENDING". |
 
 #### Sample Output
 

@@ -283,7 +283,7 @@ export const planReview2 = {
   reviewer_id: "freshmanDev",
   plan_id: "623659ddb8316b8b54f77815",
   requestTime: { $date: "2022-03-19T22:34:40.718Z" },
-  status: "ACCEPTED",
+  status: "UNDERREVIEW",
   __v: 0,
 };
 
@@ -293,7 +293,7 @@ export const planReview3 = {
   reviewer_id: "juniorDev",
   plan_id: "623659ddb8316b8b54f77815",
   requestTime: { $date: "2022-03-19T22:34:40.718Z" },
-  status: "ACCEPTED",
+  status: "APPROVED",
   __v: 0,
 };
 

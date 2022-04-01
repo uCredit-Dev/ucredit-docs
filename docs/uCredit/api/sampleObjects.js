@@ -665,3 +665,21 @@ export const yearList = [
   seniorYear,
   APYear,
 ];
+
+export const notification1 = {
+  user_id: "qwu29",
+  message: "You have created a plan!",
+  quick_link_id: "61cd000b723b840004850eb5",
+  link_type: "PLAN",
+  read: false,
+  date: "2021-12-31T00:40:43.334Z",
+};
+
+export const notification2 = {
+  user_id: "qwu29",
+  message: "Welcome to uCredit!",
+  read: true,
+  date: "2021-12-30T22:43:08.305Z",
+};
+
+export const notifications = [notification1, notification2];

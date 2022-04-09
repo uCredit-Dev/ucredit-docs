@@ -683,3 +683,105 @@ export const notification2 = {
 };
 
 export const notifications = [notification1, notification2];
+
+export const comment1 = {
+  _id: "625053fbde54f04374785e6e",
+  visible_user_id: ["user1", "user2"],
+  date: "2022-04-08T14:19:58.194+00:00",
+  commenter_id: "user1",
+  message: "Hi how are you?",
+  thread_id: "625053fbde54f04374785e6c",
+};
+
+export const comment2 = {
+  _id: "625053fbde54f04374785e6e",
+  visible_user_id: ["user1", "user2"],
+  date: "2022-04-09T14:19:58.194+00:00",
+  commenter_id: "user2",
+  message: "I'm good! How about you?",
+  thread_id: "625053fbde54f04374785e6c",
+};
+
+export const comment_edit = {
+  _id: "625053fbde54f04374785e6e",
+  visible_user_id: ["user1", "user2"],
+  date: "2022-04-09T14:19:58.194+00:00",
+  commenter_id: "user2",
+  message: "Just changed the message~",
+  thread_id: "625053fbde54f04374785e6c",
+};
+
+export const thread_false = {
+  _id: "625053fbde54f04374785e6c",
+  plan_id: "62505477de54f04374785e93",
+  location_type: "Course",
+  location_id: "62505477de54f04374da9379",
+  resolved: False,
+};
+
+export const thread_true = {
+  _id: "625053fbde54f04374785e6c",
+  plan_id: "62505477de54f04374785e93",
+  location_type: "Course",
+  location_id: "62505477de54f04374da9379",
+  resolved: True,
+};
+
+export const threads = [
+  {
+    resolved: false,
+    _id: "624f8bb1ccbfa9214879a4fa",
+    plan_id: "623659ddb8316b8b54f77815",
+    location_type: "Semester",
+    location_id: "623659ddb8316b8b54f77820Intersession",
+    __v: 0,
+    comments: [
+      {
+        visible_user_id: ["juniorDev", "mockUser"],
+        date: "2022-04-07T17:36:58.451Z",
+        _id: "624f8bb1ccbfa9214879a4fc",
+        commenter_id: {
+          _id: "juniorDev",
+          name: "Junior Dev",
+        },
+        message: "huh????",
+        thread_id: "624f8bb1ccbfa9214879a4fa",
+        __v: 0,
+      },
+      {
+        visible_user_id: ["juniorDev", "mockUser"],
+        date: "2022-04-07T17:36:58.451Z",
+        _id: "624f9157ccbfa9214879a563",
+        commenter_id: {
+          _id: "juniorDev",
+          name: "Junior Dev",
+        },
+        thread_id: "624f8bb1ccbfa9214879a4fa",
+        message: "why...",
+        __v: 0,
+      },
+    ],
+  },
+  {
+    resolved: false,
+    _id: "625049cdde54f04374785d72",
+    plan_id: "623659ddb8316b8b54f77815",
+    location_type: "Semester",
+    location_id: "623659ddb8316b8b54f7781aFall",
+    __v: 0,
+    comments: [
+      {
+        visible_user_id: ["juniorDev", "mockUser"],
+        date: "2022-04-08T14:19:58.194Z",
+        _id: "625049cdde54f04374785d74",
+        commenter_id: {
+          _id: "juniorDev",
+          name: "Junior Dev",
+        },
+        message: "new thread!",
+        thread_id: "625049cdde54f04374785d72",
+        __v: 0,
+      },
+    ],
+  },
+];

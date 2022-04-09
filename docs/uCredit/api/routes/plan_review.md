@@ -39,14 +39,15 @@ Return a list of reviews for a specific reviewer with populated reviewee info.
 
 ### `POST` `/api/planReview/request`
 
-Creates a plan review request if a review request hasn't been created. Returns 400 if missing Body field, 404 if reviewer is not registered, 409 if reviewer is already added in the reviewers array.
+Creates a plan review request if a review request hasn't been created. Returns 400 if missing Body field, 404 if reviewer is not registered, 409 if reviewer is already added in the reviewers array. **A notification with the message `[reviewee_name] has requested you to review a plan.` is created for the reviewer.**
 
-|            | Name        | Type         | Description                                      |
-| ---------- | ----------- | ------------ | ------------------------------------------------ |
-| **Body**   | plan_id     | `String`     | id of plan to create review for                  |
-|            | reviewee_id | `String`     | id of reviewee user to create review for         |
-|            | reviewer_id | `String`     | id of reviewer user to create review for         |
-| **Output** |             | `PlanReview` | Created planReview object with status “PENDING”. |
+|            | Name          | Type         | Description                                      |
+| ---------- | ------------- | ------------ | ------------------------------------------------ |
+| **Body**   | plan_id       | `String`     | id of plan to create review for                  |
+|            | reviewee_id   | `String`     | id of user who requests the review               |
+|            | reviewee_name | `String`     | name of reviewee user                            |
+|            | reviewer_id   | `String`     | id of reviewer user who is being requested       |
+| **Output** |               | `PlanReview` | Created planReview object with status “PENDING”. |
 
 #### Sample Output
 
@@ -69,35 +70,20 @@ Confirms a plan review request. Returns 400 if missing Body field, 409 if plan_i
   <pre>{JSON.stringify(planReview2, null, 2)}</pre>
 </samp>
 
-### `POST` `/api/planReview/confirm`
+### `POST` `/api/planReview/changeStatus`
 
 Approve or reject a plan. Returns 400 if Body field is invalid, 404 if review_id is not found.
 
 |            | Name      | Type         | Description                                                   |
 | ---------- | --------- | ------------ | ------------------------------------------------------------- |
 | **Body**   | review_id | `String`     | id of the planReview object                                   |
-|            | status    | `String`     | "APPROVED" or "REJECTED"                                      |
+|            | status    | `String`     | `APPROVED`,`REJECTED`, or `UNDERREVIEW`                       |
 | **Output** |           | `PlanReview` | planReview object status changed according to the body input. |
 
 #### Sample Output
 
 <samp>
   <pre>{JSON.stringify(planReview3, null, 2)}</pre>
-</samp>
-
-### `POST` `/api/planReview/repeatReview`
-
-Re-request a plan review. Returns 400 if review status is "PENDING", 404 if review_id is not found.
-
-|            | Name      | Type         | Description                                    |
-| ---------- | --------- | ------------ | ---------------------------------------------- |
-| **Body**   | review_id | `String`     | id of the planReview object                    |
-| **Output** |           | `PlanReview` | planReview object status changed to "PENDING". |
-
-#### Sample Output
-
-<samp>
-  <pre>{JSON.stringify(planReview2, null, 2)}</pre>
 </samp>
 
 ### `DELETE` `/api/planReview/removeReview`

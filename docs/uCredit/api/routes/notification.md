@@ -40,7 +40,7 @@ Creates a notification.
   <pre>{JSON.stringify(notification1, null, 2)}</pre>
 </samp>
 
-### `POST` `/api/notification/read`
+### `POST` `/api/notification/read/:notification_id`
 
 Change the status of the `read` field of a notification to true.
 
@@ -55,7 +55,7 @@ Change the status of the `read` field of a notification to true.
   <pre>{JSON.stringify(notification2, null, 2)}</pre>
 </samp>
 
-### `DELETE` `/api/notifications`
+### `DELETE` `/api/notifications/:notification_id`
 
 Deletes a notification.
 

@@ -9,13 +9,13 @@ A plan review schema. Plan reviews serve as a way to track the progress of a pla
 
 ## Attributes
 
-| Attribute Name | Type       | Required | Default | Ref    | Comments                                 |
-| -------------- | ---------- | -------- | ------- | ------ | ---------------------------------------- |
-| reviewee_id    | `String`   | `true`   |         | `User` |                                          |
-| reviewer_id    | `String`   | `true`   |         | `User` |                                          |
-| plan_id        | `ObjectId` |          |         | `Plan` |                                          |
-| status         | `String`   | `true`   |         |        | Enum: `PENDING`, `ACCEPTED`, `REJECTED`, |
-| requestTime    | `Date`     |          |         |        |                                          |
+| Attribute Name | Type       | Required | Default | Ref    | Comments                                               |
+| -------------- | ---------- | -------- | ------- | ------ | ------------------------------------------------------ |
+| reviewee_id    | `String`   | `true`   |         | `User` |                                                        |
+| reviewer_id    | `String`   | `true`   |         | `User` |                                                        |
+| plan_id        | `ObjectId` |          |         | `Plan` |                                                        |
+| status         | `String`   | `true`   |         |        | Enum: `PENDING`, `UNDERREVIEW`, `APPROVED`, `REJECTED` |
+| requestTime    | `Date`     |          |         |        |                                                        |
 
 ## Example
 

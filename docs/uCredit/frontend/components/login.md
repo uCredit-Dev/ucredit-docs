@@ -1,12 +1,13 @@
 ---
 sidebar_label: Login
-sidebar_position: 5
+sidebar_position: 6
 ---
+
 # Login
 
 ## Login Page Components
 
-### ``DashboardEntry``
+### `DashboardEntry`
 
 ![PlanAdd](/img/components/login/dashboard-entry.png)
 

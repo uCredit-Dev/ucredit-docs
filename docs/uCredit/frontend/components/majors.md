@@ -121,3 +121,477 @@ Criteria Symbol:
 :::warning
 Every element in the string **MUST** have a valid `[<LETTER>]` following it! This marks termination of the element and the beginning of a new element or boolean expression!
 :::
+
+## Test Your Knowledge: Assignment 1
+
+### Part A: Theoretical Questions
+
+1.
+2.
+3.
+
+### Part B: Application
+
+#### Description
+
+In the next part of this assignment, we will define the Biomedical Engineering major from scratch. You can find the description and requirements for the major [here](https://www.bme.jhu.edu/academics/undergraduate/undergraduate-degree-requirements/).
+
+#### Setup
+
+1. If you have not already, clone the frontend and backend repositories into the same folder.
+
+:::info
+You can find the frontend repository at https://github.com/MattLiu-mygit/ucredit_frontend_typescript
+You can find the backend repository at https://github.com/uCredit-Dev/uCredit-API
+:::
+
+2. Open two new terminal windows, and `cd` into the frontend repository on terminal window 1, and `cd` into the backend repository on terminal window 2.
+
+3. On terminal window 2, run the following commands in the specified order:
+
+```
+git checkout dev     \\ Switch over to the dev branch
+
+npm i                \\ Install all required dependencies
+
+npm start            \\ Start the backend server locally
+```
+
+4. On terminal window 1, run the following commands in the specified order:
+
+```
+git checkout development            \\ Switch over to the development branch
+
+git branch onboard-<YOUR_NAME>      \\ Create a new branch and replace <YOUR_NAME> with your name
+
+git checkout onboard-<YOUR_NAME>    \\ Switch over to the new branch you created
+
+npm i                               \\ Install all required dependencies
+```
+
+:::info
+This will create a new branch for you unrelated to the currently deployed version of the frontend repository. Feel free to modify and play around with the codebase on this branch. As long as you are checked out into your new branch, any code you push to github will modify your branch only. You can find out more about git branching [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).
+:::
+
+:::warning
+This new branch is created solely for you to navigate the codebase and practice any onboarding assignments. Do **NOT** submit a pull request from this branch under any circumstances!
+:::
+
+5. Open `majors.tsx` found at `lib/resources/majors.tsx` and delete all the code in this file.
+
+6. Copy the code below and paste it into `majors.tsx`
+
+```
+import { Major, Minor } from './commonTypes';
+
+// https://www.bme.jhu.edu/academics/undergraduate/undergraduate-degree-requirements/
+const bsBME: Major = {
+  degree_name: 'B.S. Biomedical Engineering',
+  abbrev: 'B.S. BME',
+  department: 'EN Biomedical Engineering',
+  total_degree_credit: 129,
+  wi_credit: 6,
+  url: 'https://www.bme.jhu.edu/academics/undergraduate/undergraduate-degree-requirements/',
+  distributions: [
+    {
+      name: 'Basic Sciences',
+      required_credits: 18,
+      min_credits_per_course: 1,
+      description:
+        'Students who receive credit for AP Physics I and/or Physics II will receive a waiver for the laboratory course. ' +
+        'This will reduce the required number of credits for Basic Sciences by 1 or 2 credits. Students are still required ' +
+        'to complete at least 129 total credits for the degree.',
+      criteria:
+        'AS.171.101[C]^OR^AS.171.107[C]^OR^AS.171.102[C]^OR^AS.171.108[C]^OR^AS.173.111[C]^OR^AS.173.112[C]' +
+        '^OR^AS.030.101[C]^OR^AS.030.102[C]^OR^AS.030.105[C]^OR^AS.030.106[C]',
+      fine_requirements: [
+        {
+          description:
+            '<b>General Physics I</b> <br /> AS.171.101 General Physics: Physical Science Majors I <br /> <i>OR</i> <br /> AS.171.107 General Physics for Physical Sciences Majors I (AL)',
+          required_credits: 4,
+          criteria: 'AS.171.101[C]^OR^AS.171.107[C]',
+        },
+        {
+          description:
+            '<b>General Physics II</b> <br /> AS.171.102 General Physics: Physical Science Majors II <br /> <i>OR</i> <br /> AS.171.108 General Physics for Physical Sciences Majors II (AL)',
+          required_credits: 4,
+          criteria: 'AS.171.102[C]^OR^AS.171.108[C]',
+        },
+        {
+          description:
+            '<b>General Physics Laboratory I</b> <br /> AS.173.111 General Physics Laboratory I',
+          required_credits: 1,
+          criteria: 'AS.173.111[C]',
+        },
+        {
+          description:
+            '<b>General Physics Laboratory II</b> <br /> AS.173.112 General Physics Laboratory II',
+          required_credits: 1,
+          criteria: 'AS.173.112[C]',
+        },
+        {
+          description:
+            '<b>Introductory Chemistry I</b> <br /> AS.030.101 Introductory Chemistry I',
+          required_credits: 3,
+          criteria: 'AS.030.101[C]',
+        },
+        {
+          description:
+            '<b>Introductory Chemistry II</b> <br /> AS.030.102 Introductory Chemistry II',
+          required_credits: 3,
+          criteria: 'AS.030.102[C]',
+        },
+        {
+          description:
+            '<b>Introductory Chemistry Laboratory I</b> <br /> AS.030.105 Introductory Chemistry Laboratory I',
+          required_credits: 1,
+          criteria: 'AS.030.105[C]',
+        },
+        {
+          description:
+            '<b>Introductory Chemistry Laboratory II</b> <br /> AS.030.106 Introductory Chemistry Laboratory II',
+          required_credits: 1,
+          criteria: 'AS.030.106[C]',
+        },
+      ],
+    },
+    {
+      name: 'Computer Programming',
+      required_credits: 3,
+      min_credits_per_course: 3,
+      description:
+        'Students are required to take at least one semester of programming from a select set of gateway computing courses.',
+      criteria: 'EN.500.112[C]^OR^EN.500.113[T]^OR^EN.500.114[C]',
+      fine_requirements: [
+        {
+          description:
+            '<b>Computer Programming</b> <br /> Select one of the following: <br /> EN.500.112 Gateway Computing: JAVA <br /> EN.500.113 Gateway Computing: Python <br />' +
+            'EN.500.114 Gateway Computing: MATLAB',
+          required_credits: 3,
+          criteria: 'EN.500.112^OR^EN.500.113[C]^OR^EN.500.114[C]',
+        },
+      ],
+    },
+  ],
+};
+
+export function getMajorFromCommonName(name: string) {
+  let out: Major | null = null;
+  allMajors.forEach((major) => {
+    if (major.degree_name === name) {
+      out = major;
+    }
+  });
+  if (out === null) {
+    throw Error('Major not found');
+  }
+  return out;
+}
+
+export const allMajors: Major[] = [bsBME];
+```
+
+:::info
+
+:::
+
+#### Task 1: Debugging
+
+<details>
+<summary>Click here for Answer</summary>
+
+```
+
+```
+
+</details>
+
+#### Task 2: Constructing the Criteria String
+
+<details>
+<summary>Click here for Answer</summary>
+
+```
+
+```
+
+</details>
+
+#### Task 3: Defining a Distribution and all its Fine Requirements
+
+<details>
+<summary>Click here for Answer</summary>
+
+```
+
+```
+
+</details>
+
+#### Task 4: Complete the Major!
+
+<details>
+<summary>Click here for Answer</summary>
+
+```
+
+```
+
+</details>
+
+#### Bonus: AMS major
+
+Try to define the Applied Mathematics and Statistics major by yourself! You can find the requirements for the major [here](https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/applied-mathematics-statistics/applied-mathematics-statistics-bs/#requirementstext).
+
+:::tip
+Remember to add the const variable you create to `allMajors` at the end of the file.
+:::
+
+<details>
+<summary>Click here for Answer</summary>
+
+Here is one way of implementing the definition of this major:
+
+```
+// https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/applied-mathematics-statistics/applied-mathematics-statistics-bs/#requirementstext
+const bsAMS: Major = {
+  degree_name: 'B.S. Applied Mathematics & Statistics',
+  abbrev: 'B.S. AMS',
+  department: 'EN Applied Mathematics & Statistics',
+  total_degree_credit: 120,
+  wi_credit: 6,
+  url: 'https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/applied-mathematics-statistics/applied-mathematics-statistics-bs/#requirementstext',
+  distributions: [
+    {
+      name: 'Math',
+      required_credits: 39,
+      min_credits_per_course: 3,
+      description:
+        'All courses used to meet the following departmental requirements must be taken for a letter grade and passed with a grade of C- or higher.',
+      criteria:
+        'AS.110.108[C]^OR^AS.110.109[C]^OR^AS.110.113[C]^OR^AS.110.202[C]^OR^AS.110.211[C]^OR^AS.110.201[C]^OR^AS.110.212[C]^OR^EN.553.291[C]^OR^' +
+        'AS.110.302[C]^OR^EN.553.391[C]^OR^EN.540.468[C]^OR^EN.553.385[C]^OR^EN.553.171[C]^OR^EN.553.172[C]^OR^EN.553.371[C]^OR^EN.553.471[C]^OR^EN.553.472[C]^OR^' +
+        'EN.553.420[C]^OR^EN.553.430[C]^OR^EN.553.431[C]^OR^EN.553.361[C]',
+      fine_requirements: [
+        {
+          description:
+            '<b>Calculus I</b> <br /> AS.110.108 Calculus I (Physical Sciences & Engineering) <br /> <i>OR</i> <br /> AS.110.113 Honors Single Variable Calculus <br />',
+          required_credits: 4,
+          criteria: 'AS.110.108[C]',
+        },
+        {
+          description:
+            '<b>Calculus II</b> <br /> AS.110.109 Calculus II (Physical Sciences & Engineering) <br /> <i>OR</i> <br /> AS.110.113 Honors Single Variable Calculus',
+          required_credits: 4,
+          criteria: 'AS.110.109[C]^OR^AS.110.113[C]',
+        },
+        {
+          description:
+            '<b>Calculus III</b> <br /> AS.110.202 Calculus III <br /> <i>OR</i> <br /> AS.110.211 Honors Multivariable Calculus',
+          required_credits: 4,
+          criteria: 'AS.110.202[C]^OR^AS.110.211[C]',
+        },
+        {
+          description:
+            '<b>Linear Algebra</b> <br /> Select one of the following: <br /> AS.110.201 Linear Algebra <br /> AS.110.212 Honors Linear Algebra <br /> EN.553.291 Linear Algebra and Differential Equations',
+          required_credits: 4,
+          criteria: 'AS.110.201[C]^OR^AS.110.212[C]^OR^EN.553.291[C]',
+        },
+        {
+          description:
+            '<b>Differential Equations</b> <br /> Select one of the following: <br /> AS.110.302 Differential Equations and Applications <br /> EN.553.391 Dynamical Systems <br /> EN.540.468 Introduction to Nonlinear Dynamics and Chaos',
+          required_credits: 3,
+          criteria: 'AS.110.302[C]^OR^EN.553.391[C]^OR^EN.540.468[C]',
+        },
+        {
+          description:
+            '<b>Numerical Linear Algebra</b> <br /> EN.553.385 Numerical Linear Algebra',
+          required_credits: 4,
+          criteria: 'EN.553.385[C]',
+        },
+        {
+          description:
+            '<b>Discrete Mathematics</b> <br /> Select one of the following: <br /> EN.553.171 Discrete Mathematics <br /> EN.553.172 Honors Discrete Mathematics <br /> EN.553.371 ' +
+            'Cryptology and Coding <br /> EN.553.471 Combinatorial Analysis <br /> EN.553.472 Graph Theory',
+          required_credits: 4,
+          criteria:
+            'EN.553.171[C]^OR^EN.553.172[C]^OR^EN.553.371[C]^OR^EN.553.471[C]^OR^EN.553.472[C]',
+        },
+        {
+          description:
+            '<b>Probability</b> <br /> EN.553.420 Introduction to Probability',
+          required_credits: 4,
+          criteria: 'EN.553.420[C]',
+        },
+        {
+          description:
+            '<b>Statistics</b> <br /> EN.553.430 Introduction to Statistics <br /> <i>OR</i> <br />' +
+            'EN.553.431 Honors Introduction to Statistics',
+          required_credits: 4,
+          criteria: 'EN.553.430[C]^OR^EN.553.431[C]',
+        },
+        {
+          description:
+            '<b>Optimization</b> <br /> EN.553.361 Introduction to Optimization',
+          required_credits: 4,
+          criteria: 'EN.553.361[C]',
+        },
+      ],
+    },
+    {
+      name: 'Computer Languages and Programming',
+      required_credits: 3,
+      min_credits_per_course: 1,
+      description:
+        'Select one of the following: <br />' +
+        'EN.500.112 Gateway Computing: JAVA <br /> EN.500.113 Gateway Computing: Python <br /> EN.500.114 Gateway Computing: Matlab <br />' +
+        'AS.250.205 Introduction to Computing <br /> EN.553.281 Introduction to Mathematical Computing <br /> EN.580.242 & EN.580.244 ' +
+        'Biological Models and Simulations and Nonlinear Dynamics of Biological Systems <br /> EN.601.220 Intermediate Programming' +
+        '. <br /> NOTE: Students are strongly encouraged to fulfill this element of the requirement by taking EN.500.113 Gateway Computing: Python, and to do this in their first semester at Johns Hopkins University.',
+      criteria:
+        'EN.500.112[C]^OR^EN.500.113[C]^OR^EN.500.114[C]^OR^AS.250.205[C]^OR^EN.553.281[C]^OR^EN.580.242[C]^OR^EN.580.244[C]^OR^' +
+        'EN.601.220[C]',
+    },
+    {
+      name: 'Area of Focus',
+      required_credits: 6,
+      min_credits_per_course: 3,
+      pathing: true,
+      description:
+        'Two courses must be taken within a coherent field of interest. For more detail please visit ' +
+        'https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/applied-mathematics-statistics/applied-mathematics-statistics-bs/#requirementstext',
+      criteria:
+        'AS.110.405[C]^OR^AS.110.445[C]^OR^EN.553.426[C]^OR^EN.553.427[C]^OR^EN.553.433[C]^OR^EN.553.492[C]^OR^' +
+        'EN.553.400[C]^OR^EN.553.413[C]^OR^EN.553.414[C]^OR^EN.553.432[C]^OR^EN.553.436[C]^OR^EN.553.439[C]^OR^EN.553.450[C]^OR^' +
+        'EN.553.362[C]^OR^EN.553.453[C]^OR^EN.553.463[C]^OR^EN.553.465[C]^OR^EN.553.467[C]^OR^' +
+        'AS.110.401[C]^OR^EN.553.371[C]^OR^EN.553.471[C]^OR^EN.553.472[C]^OR^' +
+        'EN.553.428[C]^OR^EN.553.441[C]^OR^EN.553.442[C]^OR^EN.553.444[C]^OR^EN.553.445[C]^OR^EN.553.447[C]^OR^EN.553.448[C]^OR^EN.553.449[C]^OR^EN.553.488[C]^OR^' +
+        'EN.553.481[C]^OR^EN.553.493[C]',
+      fine_requirements: [
+        {
+          required_credits: 6,
+          description: '<b>Probability and Stochastic Processes</b>',
+          criteria:
+            'AS.110.405[C]^OR^AS.110.445[C]^OR^EN.553.426[C]^OR^EN.553.427[C]^OR^EN.553.433[C]^OR^EN.553.492[C]',
+        },
+        {
+          required_credits: 6,
+          description: '<b>Statistics and Statistical Learning</b>',
+          criteria:
+            'AS.110.445[C]^OR^EN.553.400[C]^OR^EN.553.413[C]^OR^EN.553.414[C]^OR^EN.553.432[C]^OR^EN.553.433[C]' +
+            '^OR^EN.553.436[C]^OR^EN.553.439[C]^OR^EN.553.450[C]',
+        },
+        {
+          required_credits: 6,
+          description: '<b>Optimization and Operations Research</b>',
+          criteria:
+            'EN.553.362[C]^OR^EN.553.400[C]^OR^EN.553.453[C]^OR^EN.553.463[C]^OR^EN.553.465[C]^OR^EN.553.467[C]',
+        },
+        {
+          required_credits: 6,
+          description: '<b>Discrete Mathematics</b>',
+          criteria:
+            'AS.110.401[C]^OR^EN.553.371[C]^OR^EN.553.463[C]^OR^EN.553.471[C]^OR^EN.553.472[C]',
+        },
+        {
+          required_credits: 6,
+          description: '<b>Financial Mathematics</b>',
+          criteria:
+            'EN.553.427[C]^OR^EN.553.428[C]^OR^EN.553.441[C]^OR^EN.553.442[C]^OR^EN.553.444[C]^OR^EN.553.445[C]' +
+            '^OR^EN.553.447[C]^OR^EN.553.448[C]^OR^EN.553.449[C]^OR^EN.553.488[C]',
+        },
+        {
+          required_credits: 6,
+          description: '<b>Computational Mathematics</b>',
+          criteria:
+            'EN.553.481[C]^OR^AS.110.445[C]^OR^EN.553.433[C]^OR^EN.553.467[C]^OR^EN.553.493[C]',
+        },
+      ],
+    },
+    {
+      name: 'Scientific Computing',
+      required_credits: 3,
+      min_credits_per_course: 3,
+      description:
+        '<b>Select one of the following:</b> <br /> AS.110.445 Mathematical and Computational Foundations of Data Science <br /> EN.553.400 Mathematical Modeling and Consulting' +
+        '<br /> EN.553.413 Applied Statistics and Data Analysis <br /> EN.553.432 Bayesian Statistics <br /> EN.553.433 Monte Carlo Methods <br />' +
+        'EN.553.436 Introduction to Data Science <br /> EN.553.450 Computational Molecular Medicine <br /> EN.553.463 Network Models in Operations Research <br />' +
+        'EN.553.467 Deep Learning in Discrete Optimization <br /> EN.553.481 Numerical Analysis <br /> EN.553.488 Computing for Applied Mathematics <br />' +
+        'EN.553.493 Mathematical Image Analysis <br /> EN.553.494 Applied and Computational Multilinear Algebra <br /> EN.601.433 Intro Algorithms <br />' +
+        'EN.601.475 Machine Learning <br /> EN.601.482 Machine Learning: Deep Learning',
+      criteria:
+        'AS.110.445[C]^OR^EN.553.400[C]^OR^EN.553.413[C]^OR^EN.553.432[C]^OR^EN.553.433[C]^OR^EN.553.436[C]' +
+        '^OR^EN.553.450[C]^OR^EN.553.463[C]^OR^EN.553.467[C]^OR^EN.553.481[C]^OR^EN.553.488[C]^OR^EN.553.493[C]' +
+        '^OR^EN.553.494[C]^OR^EN.601.433[C]^OR^EN.601.475[C]^OR^EN.601.482[C]',
+    },
+    {
+      name: 'Natural Sciences',
+      required_credits: 12,
+      min_credits_per_course: 1,
+      description:
+        'Courses coded Natural Sciences. Laboratory courses that accompany Natural Science courses may' +
+        ' be used in reaching this total. (Courses used to meet the requirements above may be counted toward this total.)',
+      criteria: 'N[A]',
+    },
+    {
+      name: 'Quantitative Studies',
+      required_credits: 40,
+      min_credits_per_course: 1,
+      description:
+        'Courses coded Quantitative Studies totaling 40 credits of which at least 18 credits must be in courses ' +
+        'numbered 300 or higher. (Courses used to meet the requirements above may be counted toward this total.)',
+      criteria: 'Q[A]',
+      fine_requirements: [
+        {
+          description:
+            '<b>Upper Level Requirement</b> <br /> At least 18 credits must be in courses numbered 300 or higher.',
+          required_credits: 18,
+          criteria: 'Upper Level[L]',
+        },
+      ],
+    },
+    {
+      name: 'Liberal Arts',
+      required_credits: 18,
+      min_credits_per_course: 3,
+      description:
+        'These courses must have either an ‘H’ or ‘S’ area designator on them, but can be ' +
+        'from any department. At most 2 of these courses may be taken S/U (if not counted towards ' +
+        'the writing requirement). Foreign language courses can be counted as well, even if ' +
+        'they don’t carry an ‘H’ or ‘S’ designator.',
+      criteria:
+        'AS Center for Language Education[D]^OR^AS Modern Languages and Literatures[D]^OR^H[A]^OR^S[A]',
+    },
+    {
+      name: 'Writing Intensive',
+      required_credits: 6,
+      min_credits_per_course: 3,
+      double_count: true,
+      description:
+        'Students are required to fulfill the university’s requirement of two writing intensive courses, ' +
+        'each at least 3 credits. Students must receive at least a C- grade or better in these writing courses. ',
+      criteria: 'Written Intensive[W]',
+      fine_requirements: [
+        {
+          description:
+            '<b>Writing Skills in English</b> <br /> At least one course must be explicitly focused on writing skills in English (eg, courses in professional, ' +
+            'fiction or expository writing). These courses may overlap with other requirements.',
+          required_credits: 3,
+          criteria:
+            'AS.060.100[C]^OR^AS.060.113[C]^OR^AS.060.114[C]^OR^AS.180.248[C]^OR^AS.220.105[C]^OR^AS.220.106[C]^OR^AS.220.108[C]^OR^AS.290.303[C]^OR^AS.360.133[C]^OR^EN.661.110[C]^OR^EN.661.111[C]^OR^EN.661.250[C]^OR^EN.661.251[C]^OR^EN.661.315[C]',
+        },
+      ],
+    },
+  ],
+};
+```
+
+</details>
+
+#### Deleting your branch
+
+You can delete your branch directly using Github in your browser.
+
+:::caution
+It is highly recommended that you verify your work with a reviewer before deleting your branch. You can reach out to Aryaman Shodhan at ashodha1@jhu.edu or another member of UCredit who is familiar with this part of the codebase for a review. Please use the subject line "UCredit Onboarding Review for Majors".
+:::

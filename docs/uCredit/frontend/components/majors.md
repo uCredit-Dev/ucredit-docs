@@ -65,7 +65,7 @@ Each `DistributionObj` contains the following member fields:
 | `fine_requirements` (optional) | Custom JavaScript Object of type `FineReq[]` which is basically an array of `FineReq`’s. These are the classes or sub-requirements of a distribution which must be met in order to mark a distribution as completely satisfied. Note that even if the `required_credits` are met for the distribution but there is a `fine_requirement` which is **NOT** met yet, the distribution will **NOT** be marked as satisfied. |
 | `user_select` (optional)       | Boolean value which if true, allows the user to manually mark this distribution as satisfied or unsatisfied through the user interface.                                                                                                                                                                                                                                                                                 |
 | `double_count` (optional)      | Boolean value which if true, allows any course satisfying another distribution to **ALSO** satisfy this distribution if it meets the requirements.                                                                                                                                                                                                                                                                      |
-| `exception` (optional)         | `// TODO: COMPLETE THIS`                                                                                                                                                                                                                                                                                                                                                                                                |
+| `exception` (optional)         | String that is similar in design to the `criteria` string, but elements specified in this string will **NOT** satisfy the requirement.                                                                                                                                                                                                                                                                                  |
 | `exclusive` (optional)         | Boolean value which if true, does **NOT** allow a course satisfying another distribution to satisfy this distribution.                                                                                                                                                                                                                                                                                                  |
 | `pathing` (optional)           | Boolean value which if true, marks this distribution as complete if **ANY** of the fine requirements is satisfied. This flag is useful if there are multiple ways of satisfying a given distribution. In this case, all the alternatives would be listed as separate `FineReq`’s as part of the `fine_requirements`.                                                                                                    |
 
@@ -126,9 +126,79 @@ Every element in the string **MUST** have a valid `[<LETTER>]` following it! Thi
 
 ### Part A: Theoretical Questions
 
-1.
-2.
-3.
+1. Is this a well-designed distribution?
+
+```
+{
+  name: 'Basic Sciences',
+  required_credits: 4,
+  min_credits_per_course: 4,
+  description:
+    '',
+  criteria:
+    'AS.171.101[C]^OR^AS.171.107[C],
+  fine_requirements: [
+    {
+      description:
+        '<b>General Physics I</b> <br /> AS.171.101 General Physics: Physical Science Majors I <br /> <i>OR</i> <br /> AS.171.107 General Physics for Physical Sciences Majors I (AL)',
+        required_credits: 4,
+      criteria: 'AS.171.101[C]^OR^AS.171.107[C]',
+    },
+  ],
+},
+
+```
+
+<details>
+<summary>Click here for Answer</summary>
+
+Yes, because the object includes all the required fields and so won't cause any errors.
+
+</details>
+
+2. Is this a well-defined fine requirement?
+
+```
+{
+  description:
+    'Physics',
+  criteria: 'AS.171.101[C]^OR^AS.171.107[C]',
+  exclusive: true,
+},
+```
+
+<details>
+<summary>Click here for Answer</summary>
+
+No, because the object does **NOT** include the required `required_credits` field.
+
+</details>
+
+3. Is this syntactically a well-designed `criteria` string?
+
+```
+criteria: EN.580.244[C]^OR^EN.580.246[D]^OR^EN.580.248[A]^OR^EN.580.475[W]^OR^EN.580.477[T]^OR^EN.580.485[C],
+```
+
+<details>
+<summary>Click here for Answer</summary>
+
+There is nothing wrong with the syntax of this criteria string, so syntactically it is well defined.
+
+</details>
+
+4. Is this semantically a well-designed `criteria` string?
+
+```
+criteria: EN.580.244[C]^OR^EN.580.246[D]^OR^EN.580.248[A]^OR^EN.580.475[W]^OR^EN.580.477[T]^OR^EN.580.485[C],
+```
+
+<details>
+<summary>Click here for Answer</summary>
+
+Semantically, this is not a well defined criteria string because the `[<LETTER>]` following a course number should be `[C]`, but in the example above this is not the case for all the elements. Although this would not cause errors when the code is executed, it will not produce the desired outcome when these courses are added to the plan.
+
+</details>
 
 ### Part B: Application
 

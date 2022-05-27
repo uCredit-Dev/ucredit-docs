@@ -339,12 +339,58 @@ criteria: 'EN.500.112[C]^OR^EN.500.113[C]^OR^EN.500.114[C]',
 
 #### Task 2: Constructing Criteria
 
+Copy and paste the following code as a new distribution within the `distributions` member field array:
+
+```
+{
+    name: 'Humanities and Social Sciences',
+    required_credits: 18,
+    min_credits_per_course: 3,
+    description:
+        'Select courses to form a coherent program, relevant to the student’s goals. One course in which ethical and social ' +
+        'issues related to technology or medicine is recommended.',
+    criteria: '',                       // TODO: IMPLEMENT THIS STRING
+    fine_requirements: [
+        {
+            description: '<b>One Upper Level class</b>',
+            required_credits: 3,
+            criteria: '',               // TODO: IMPLEMENT THIS STRING
+        },
+    ],
+},
+```
+
+You are given the following information:
+
+The Humanities and Social Sciences requirement can be satisfied by ANY class which is designated the H area or the S area. For the Biomedical Engineering degree, at least 3 credits must come from a class which is Upper Level (300 or 400 level)
+
+**Task:** Design criteria strings for the Humanities and Social Sciences Distribution
+
 <details>
 <summary>Click here for Answer</summary>
 
-```
+Here is the implementation of the distribution with both the criteria strings:
 
 ```
+{
+    name: 'Humanities and Social Sciences',
+    required_credits: 18,
+    min_credits_per_course: 3,
+    description:
+        'Select courses to form a coherent program, relevant to the student’s goals. One course in which ethical and social ' +
+        'issues related to technology or medicine is recommended.',
+    criteria: 'H[A]^OR^S[A]',
+    fine_requirements: [
+        {
+            description: '<b>One Upper Level class</b>',
+            required_credits: 3,
+            criteria: '(H[A]^OR^S[A])^AND^(300[L]^OR^400[L])',
+        },
+    ],
+},
+```
+
+In the `fine_requirements` criteria string, it is important to re-specify that the course must be `(H[A]^OR^S[A])` because otherwise, the fine requirement would be satisfied for any upper level course irrespective of its designated area.
 
 </details>
 

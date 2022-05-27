@@ -362,9 +362,9 @@ Copy and paste the following code as a new distribution within the `distribution
 
 You are given the following information:
 
-The Humanities and Social Sciences requirement can be satisfied by ANY class which is designated the H area or the S area. For the Biomedical Engineering degree, at least 3 credits must come from a class which is Upper Level (300 or 400 level)
+The Humanities and Social Sciences requirement can be satisfied by **ANY** class which is designated the H area or the S area. For the Biomedical Engineering degree, at least 3 credits must come from a class which is Upper Level (300 or 400 level)
 
-**Task:** Design criteria strings for the Humanities and Social Sciences Distribution
+**Task:** Design criteria strings for the "Humanities and Social Sciences" Distribution
 
 <details>
 <summary>Click here for Answer</summary>
@@ -396,16 +396,328 @@ In the `fine_requirements` criteria string, it is important to re-specify that t
 
 #### Task 3: Defining Distributions
 
+We will now implement two distributions of the Biomedical Engineering major from scratch.
+
+1. "Biomedical Core" Distribution. **ALL** of the following courses must be completed in order to satisfy this distribution:
+
+- EN.580.111 Biomedical Engineering and Design (2 Credits)
+- EN.580.151 Structural Biology of Cells (3 Credits)
+- EN.580.153 Structural Biology of Cells Laboratory (1 Credit)
+- EN.580.221 Biochemistry and Molecular Engineering (4 Credits)
+- EN.580.241 Statistical Physics (2 Credits)
+- EN.580.242 Biological Models and Simulations (2 Credits)
+- EN.580.243 Linear Signals and Systems (2 Credits)
+- EN.580.244 Nonlinear Dynamics of Biological Systems (2 Credits)
+- EN.580.246 Systems and Controls (2 Credits)
+- EN.580.248 Systems Biology of the Cell (2 Credits)
+- EN.580.475 Biomedical Data Science (2 Credits)
+- EN.580.477 Biomedical Data Science Laboratory (1 Credit)
+- EN.580.485 Computational Medicine: Cardiology (2 Credits)
+- EN.580.487 Computational Medicine: Cardiology Laboratory (1 Credit)
+- Any two of the following core elective classes (3 Credits each):
+  - EN.580.424 Neuroengineering and Lab
+  - EN.580.427 Microphysiological Systems and Lab
+  - EN.580.452 Cell and Tissue Engineering Lab
+  - EN.580.453 Immunoengineering Principles and Applications
+  - EN.580.454 Methods in Nucleic Acid Sequencing Lab
+  - EN.580.494 Build an Imager
+- Career Exploration (0 Credits + You may assume that there is a Career Exploration department in the Whiting School of Engineering which provides opportunities for students to satisfy this requirement)
+
+:::tip
+You might find it convenient to define one `FineReq` per class except for the core electives.
+:::
+
+2. "Design" Distribution. **ANY** of the following sequence of courses may be completed in order to satisfy this requirement, amounting to a total of 6 required credits:
+
+- EN.500.308 Multidisciplinary Engineering Design I + EN.500.309 Advanced Multidisciplinary Design
+- EN.510.433 Senior Design/Research + EN.510.434 Senior Design/Research II
+- EN.520.462 Leading Innovation Design Team + EN.520.463 Leading Innovation Design Team II
+- EN.520.498 Senior Design Project + EN.520.499 Senior Design Project II
+- EN.540.400 Project in Design: Pharmacokinetics + EN.540.421 Project in Design: Pharmacodynamics
+- EN.580.311 Design Team Health Tech Project I + EN.580.312 Design Team Health Tech Project II
+- EN.580.411 Design Team Health Tech Project I + EN.580.412 Design Team Health Tech Project II
+- EN.580.437 Neuro Data Design I + EN.580.438 Neuro Data Design II
+- EN.580.456 Introduction to Rehabilitation Engineering + EN.580.457 Introduction to Rehabilitation Engineering: Design Lab
+- EN.580.471 Principles of Design of BME Instrumentation + EN.580.571 Honors Instrumentation
+- EN.580.480 Precision Care Medicine I + EN.580.481 Precision Care Medicine II
+- EN.580.580 Senior Design Project I + EN.580.581 Senior Design Project II
+- EN.601.455 Computer Integrated Surgery I + EN.601.456 Computer Integrated Surgery II
+
+:::tip
+You might find it convenient to define one `FineReq` per course sequence.
+:::
+
+**Task:** Implement the two distributions as per the specified information.
+
 <details>
 <summary>Click here for Answer</summary>
 
-```
+Here is a complete implementation of the "Biomedical Core" Distribution:
 
 ```
+{
+    name: 'Biomedical Core',
+    required_credits: 34,
+    min_credits_per_course: 1,
+    description:
+        'Each student must complete a set of core courses which will serve as foundational knowledge in the discipline of Biomedical Engineering. For more information please visit the ' +
+        "<a href='https://e-catalogue.jhu.edu/engineering/full-time-residential-programs/degree-programs/biomedical-engineering/biomedical-engineering-bachelor-science/#requirementstext'>" +
+        'major degree requirement</a> section on the department website.',
+    criteria:
+        'EN.580.111[C]^OR^EN.580.151[C]^OR^EN.580.153[C]^OR^EN.580.221[C]^OR^EN.580.241[C]^OR^EN.580.242[C]^OR^EN.580.243[C]^OR^' +
+        'EN.580.244[C]^OR^EN.580.246[C]^OR^EN.580.248[C]^OR^EN.580.475[C]^OR^EN.580.477[C]^OR^EN.580.485[C]^OR^EN.580.487[C]^OR^' +
+        'EN.580.424[C]^OR^EN.580.427[C]^OR^EN.580.452[C]^OR^EN.580.453[C]^OR^EN.580.454[C]^OR^EN.580.494[C]',
+    fine_requirements: [
+        {
+          description:
+            '<b>Biomedical Engineering and Design</b> <br /> EN.580.111 Biomedical Engineering and Design',
+          required_credits: 2,
+          criteria: 'EN.580.111[C]',
+        },
+        {
+          description:
+            '<b>Structural Biology of Cells</b> <br /> EN.580.151 Structural Biology of Cells',
+          required_credits: 3,
+          criteria: 'EN.580.151[C]',
+        },
+        {
+          description:
+            '<b>Structural Biology of Cells Laboratory</b> <br /> EN.580.153 Structural Biology of Cells Laboratory',
+          required_credits: 1,
+          criteria: 'EN.580.153[C]',
+        },
+        {
+          description:
+            '<b>Biochemistry and Molecular Engineering</b> <br /> EN.580.221 Biochemistry and Molecular Engineering',
+          required_credits: 4,
+          criteria: 'EN.580.221[C]',
+        },
+        {
+          description:
+            '<b>Statistical Physics</b> <br /> EN.580.241 Statistical Physics',
+          required_credits: 2,
+          criteria: 'EN.580.241[C]',
+        },
+        {
+          description:
+            '<b>Biological Models and Simulations</b> <br /> EN.580.242 Biological Models and Simulations',
+          required_credits: 2,
+          criteria: 'EN.580.242[C]',
+        },
+        {
+          description:
+            '<b>Linear Signals and Systems</b> <br /> EN.580.243 Linear Signals and Systems',
+          required_credits: 2,
+          criteria: 'EN.580.243[C]',
+        },
+        {
+          description:
+            '<b>Nonlinear Dynamics of Biological Systems</b> <br /> EN.580.244 Nonlinear Dynamics of Biological Systems',
+          required_credits: 2,
+          criteria: 'EN.580.244[C]',
+        },
+        {
+          description:
+            '<b>Systems and Controls</b> <br /> EN.580.246 Systems and Controls',
+          required_credits: 2,
+          criteria: 'EN.580.246[C]',
+        },
+        {
+          description:
+            '<b>Systems Biology of the Cell</b> <br /> EN.580.248 Systems Biology of the Cell',
+          required_credits: 2,
+          criteria: 'EN.580.248[C]',
+        },
+        {
+          description:
+            '<b>Biomedical Data Science</b> <br /> EN.580.475 Biomedical Data Science',
+          required_credits: 2,
+          criteria: 'EN.580.475[C]',
+        },
+        {
+          description:
+            '<b>Biomedical Data Science Laboratory</b> <br /> EN.580.477 Biomedical Data Science Laboratory',
+          required_credits: 1,
+          criteria: 'EN.580.477[C]',
+        },
+        {
+          description:
+            '<b>Computational Medicine: Cardiology</b> <br /> EN.580.485 Computational Medicine: Cardiology',
+          required_credits: 2,
+          criteria: 'EN.580.485[C]',
+        },
+        {
+          description:
+            '<b>Computational Medicine: Cardiology Laboratory</b> <br /> EN.580.487 Computational Medicine: Cardiology Laboratory',
+          required_credits: 1,
+          criteria: 'EN.580.487[C]',
+        },
+        {
+          description:
+            '<b>Core Electives</b> <br /> Select two of the following core electives (Note: These courses cannot be double-counted toward the 21-credit focus area ' +
+            'requirement. Courses taken in excess of the 6 credit core elective requirement can be counted in a relevant focus area):' +
+            '<br /> EN.580.424 Neuroengineering and Lab <br /> EN.580.427 Microphysiological Systems and Lab <br />' +
+            'EN.580.452 Cell and Tissue Engineering Lab <br /> EN.580.453 Immunoengineering Principles and Applications <br />' +
+            'EN.580.454 Methods in Nucleic Acid Sequencing Lab <br /> EN.580.494 Build an Imager',
+          required_credits: 6,
+          criteria:
+            'EN.580.424[C]^OR^EN.580.427[C]^OR^EN.580.452[C]^OR^EN.580.453[C]^OR^EN.580.454[C]^OR^EN.580.494[C]',
+        },
+        {
+          description:
+            '<b>Career Exploration</b> <br /> Career Exploration in BME is a 0-credit self-identified set of career related events (lectures, panels, journal clubs, etc.) ' +
+            'beginning in the spring semester of year one and continuing until graduation. Career Exploration is administered through a ' +
+            'Community Blackboard site; students will be enrolled by the department.',
+          required_credits: 0,
+          criteria: 'EN Career Exploration[D]',
+        },
+    ],
+},
+```
+
+The course with the minimum number of credits in this distribution was 1 credit, which is why `min_credits_per_course` was 1.
+
+Here is a complete implementation of the "Design" Distribution:
+
+```
+{
+    name: 'Design',
+    required_credits: 6,
+    min_credits_per_course: 2,
+    description: 'Select at least one of the following design sequences',
+    criteria:
+        '(EN.510.433[C]^OR^EN.510.434[C])^OR^(EN.520.462[C]^OR^EN.520.463[C])^OR^' +
+        '(EN.520.498[C]^OR^EN.520.499[C])^OR^(EN.540.400[C]^OR^EN.540.421[C])^OR^' +
+        '(EN.580.311[C]^OR^EN.580.312[C])^OR^(EN.580.411[C]^OR^EN.580.412[C])^OR^' +
+        '(EN.580.456[C]^OR^EN.580.457[C])^OR^(EN.580.471[C]^OR^EN.580.571[C])^OR^' +
+        '(EN.580.480[C]^OR^EN.580.481[C])^OR^(EN.580.580[C]^OR^EN.580.581[C])^OR^' +
+        '(EN.601.455[C]^OR^EN.601.456[C])^OR^(EN.580.437[C]^OR^EN.580.438[C])',
+    pathing: true,
+    fine_requirements: [
+        {
+          description:
+            '<b>EN.500.308 and EN.500.309</b> <br /> EN.500.308 Multidisciplinary Engineering Design I <br /> EN.500.309 Advanced Multidisciplinary Design',
+          required_credits: 6,
+          criteria: 'EN.500.308[C]^OR^EN.500.309[C]',
+        },
+        {
+          description:
+            '<b>EN.510.433 and EN.510.434</b> <br /> EN.510.433 Senior Design Research <br /> EN.510.434 Senior Design/Research II <br />' +
+            '(This option must be approved by the Materials Science & Engineering Department)',
+          required_credits: 6,
+          criteria: 'EN.510.433[C]^OR^EN.510.434[C]',
+        },
+        {
+          description:
+            '<b>EN.520.462 and EN.520.463</b> <br /> EN.520.462 Leading Innovation Design Team <br /> EN.520.463 Leading Innovation Design Team II',
+          required_credits: 6,
+          criteria: 'EN.520.462[C]^OR^EN.520.463[C]',
+        },
+        {
+          description:
+            '<b>EN.520.498 and EN.520.499</b> <br /> EN.520.498 Senior Design Project <br /> EN.520.499 Senior Design Project II',
+          required_credits: 6,
+          criteria: 'EN.520.498[C]^OR^EN.520.499[C]',
+        },
+        {
+          description:
+            '<b>EN.540.400 and EN.540.421</b> <br /> EN.540.400 Project in Design: Pharmacokinetics <br /> EN.540.421 Project in Design: Pharmacodynamics',
+          required_credits: 6,
+          criteria: 'EN.540.400[C]^OR^EN.540.421[C]',
+        },
+        {
+          description:
+            '<b>EN.580.311 and EN.580.312</b> <br /> EN.580.311 Design Team Health Tech Project I <br /> EN.580.312 Design Team Health Tech Project II',
+          required_credits: 6,
+          criteria: 'EN.580.311[C]^OR^EN.580.312[C]',
+        },
+        {
+          description:
+            '<b>EN.580.411 and EN.580.412</b> <br /> EN.580.411 Design Team Health Tech Project I <br /> EN.580.412 Design Team Health Tech Project II',
+          required_credits: 6,
+          criteria: 'EN.580.411[C]^OR^EN.580.412[C]',
+        },
+        {
+          description:
+            '<b>EN.580.437 and EN.580.438</b> <br /> EN.580.437 Neuro Data Design I <br /> EN.580.438 Neuro Data Design II',
+          required_credits: 6,
+          criteria: 'EN.580.437[C]^OR^EN.580.438[C]',
+        },
+        {
+          description:
+            '<b>EN.580.456 and EN.580.457</b> <br /> EN.580.456 Introduction to Rehabilitation Engineering <br /> EN.580.457 Introduction to Rehabilitation Engineering: Design Lab',
+          required_credits: 6,
+          criteria: 'EN.580.456[C]^OR^EN.580.457[C]',
+        },
+        {
+          description:
+            '<b>EN.580.471 and EN.580.571</b> <br /> EN.580.471 Principles of Design of BME Instrumentation <br /> EN.580.571 Honors Instrumentation',
+          required_credits: 6,
+          criteria: 'EN.580.471[C]^OR^EN.580.571[C]',
+        },
+        {
+          description:
+            '<b>EN.580.480 and EN.580.481</b> <br /> EN.580.480 Precision Care Medicine I <br /> EN.580.481 Precision Care Medicine II',
+          required_credits: 6,
+          criteria: 'EN.580.480[C]^OR^EN.580.481[C]',
+        },
+        {
+          description:
+            '<b>EN.580.580 and EN.580.581</b> <br /> EN.580.580 Senior Design Project I <br /> EN.580.581 Senior Design Project II',
+          required_credits: 6,
+          criteria: 'EN.580.580[C]^OR^EN.580.581[C]',
+        },
+        {
+          description:
+            '<b>EN.601.455 and EN.601.456</b> <br /> EN.601.455 Computer Integrated Surgery I <br /> EN.601.456 Computer Integrated Surgery II',
+          required_credits: 6,
+          criteria: 'EN.601.455[C]^OR^EN.601.456[C]',
+        },
+    ],
+},
+```
+
+The use of `^AND^` within the criteria string would be **WRONG**. This is because `^AND^` requires that the element before **AND** after it must be satisfied to count towards the requirement. However, the same course can never have two different course numbers, which is why using `^AND^` between two course numbers would always evaluate to `false`.
+
+The course with the minimum number of credits in this distribution was 2 credits, which is why `min_credits_per_course` was 2.
+
+Since **ANY** of the chosen tracks can satisfy the design requirement, it is helpful to set the `pathing` flag to `true` for this distribution.
 
 </details>
 
 #### Task 4: Complete the Major!
+
+Finally, there are a few more requirements of the major which are yet to be implemented:
+
+1. "Mathematics" Distribution: **ALL** of the following courses must be completed in order to satisfy this distribution:
+
+- AS.110.108 Calculus I (Physical Sciences & Engineering) (4 Credits)
+- AS.110.109 Calculus II (Physical Sciences & Engineering) (4 Credits)
+- AS.110.202 Calculus III (4 Credits) **OR** AS.110.211 Honors Multivariable Calculus (4 Credits)
+- EN.553.291 Linear Algebra and Differential Equations (4 Credits)
+- Any of the following courses in Probability and Statistics (At least 3 Credits each):
+  - EN.553.310 Probability and Statistics for the Physical Sciences and Engineering
+  - EN.553.311 Probability and Statistics for the Biological Sciences & Engineering
+  - EN.553.413 Applied Statistics and Data Analysis
+  - EN.553.430 Introduction to Statistics
+  - EN.553.433 Monte Carlo Methods
+  - EN.560.348 Probability & Statistics in Civil Engineering
+
+2. "Focus Area" Distribution: 21 Credits worth of classes must be taken in **ANY** of the following focus areas:
+
+- Biomedical Data Science (Program of Study Tag: BMED-BDS)
+- Computational Medicine (Program of Study Tag: BMED-CM)
+- Genomics and Systems Biology (Program of Study Tag: BMED-GSB)
+- Imaging and Medical Devices (Program of Study Tag: BMED-IMD)
+- Neuroengineering (Program of Study Tag: BMED-NE)
+- Immunoengineering (Program of Study Tag: BMED-IMMU)
+- Translational Cell and Tissue Engineering (Program of Study Tag: BMED-TCTE)
+
+3. "Other Electives" Distribution: This includes any credit bearing classes taken at JHU. At least 9 such credits worth of classes must be taken, which **CANNOT** belong to any other distribution.
+
+4. "Writing Intensive" Distribution: Two classes, each at least 3 credits must be taken to satisfy this requirement. Classes used for this distribution **CAN** be used to satisfy other distributions. The criteria for this distribution is `Written Intensive[W]`.
+
+**Task:** Implement each of the distributions specified above.
 
 <details>
 <summary>Click here for Answer</summary>
@@ -1095,6 +1407,12 @@ const bsAMS: Major = {
 };
 ```
 
+Don't forget to add the variable to `allMajors`:
+
+```
+export const allMajors: Major[] = [bsBME, bsAMS];
+```
+
 </details>
 
 #### Deleting your branch
@@ -1104,7 +1422,3 @@ You can delete your branch directly using Github in your browser.
 :::caution
 It is highly recommended that you verify your work with a reviewer before deleting your branch. You can reach out to Aryaman Shodhan at ashodha1@jhu.edu or another member of UCredit who is familiar with this part of the codebase for a review. Please use the subject line "UCredit Onboarding Review for Majors".
 :::
-
-```
-
-```

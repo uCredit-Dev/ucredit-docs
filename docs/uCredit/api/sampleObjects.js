@@ -716,7 +716,7 @@ export const thread_false = {
   plan_id: "62505477de54f04374785e93",
   location_type: "Course",
   location_id: "62505477de54f04374da9379",
-  resolved: False,
+  resolved: false,
 };
 
 export const thread_true = {
@@ -724,7 +724,7 @@ export const thread_true = {
   plan_id: "62505477de54f04374785e93",
   location_type: "Course",
   location_id: "62505477de54f04374da9379",
-  resolved: True,
+  resolved: true,
 };
 
 export const threads = [

@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Plan Review Routes
 
-import {planReviewList1, planReviewList2, planReview1, planReview2} from "../sampleObjects";
+import {planReviewList1, planReviewList2, planReview1, planReview2, planReview3} from "../sampleObjects";
 
 ### `GET` `/api/planReview/getReviewers`
 

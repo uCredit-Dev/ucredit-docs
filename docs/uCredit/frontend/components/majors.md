@@ -1417,7 +1417,7 @@ export const allMajors: Major[] = [bsBME, bsAMS];
 
 #### Deleting your branch
 
-You can delete your branch directly using Github in your browser.
+You can delete your branch directly using [Github Desktop](https://desktop.github.com/). Simply right click the branch and click delete.
 
 :::caution
 It is highly recommended that you verify your work with a reviewer before deleting your branch. You can reach out to Aryaman Shodhan at ashodha1@jhu.edu or another member of UCredit who is familiar with this part of the codebase for a review. Please use the subject line "UCredit Onboarding Review for Majors".

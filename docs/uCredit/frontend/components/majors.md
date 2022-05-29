@@ -60,7 +60,7 @@ Each `DistributionObj` contains the following member fields:
 | `name`                         | String representing the name of the Distribution, eg. Mathematics, Core, Science, etc.                                                                                                                                                                                                                                                                                                                                  |
 | `required_credits`             | Number representing the required number of credits to satisfy a single distribution within a major.                                                                                                                                                                                                                                                                                                                     |
 | `min_credits_per_course`       | Number representing the minimum number of credits each course must be if used to satisfy this distribution.                                                                                                                                                                                                                                                                                                             |
-| `description`                  | String representing a short description of the distribution.                                                                                                                                                                                                                                                                                                                                                            |
+| `description`                  | String representing a short description of the distribution. The use of HTML tags such as `<h1>`, `<a>`, `<br />`, etc. in the description will work as long as every tag is closed appropriately.                                                                                                                                                                                                                      |
 | `criteria`                     | String representing the criteria to satisfy a single distribution. This could simply be a list of classes, departments whose courses may be taken to satisfy this distribution, the level of classes (upper or lower), etc. The schema for the different criteria, and examples of how the criteria string is structured are at the [end of this page](#schema-and-example-of-criteria-string).                         |
 | `fine_requirements` (optional) | Custom JavaScript Object of type `FineReq[]` which is basically an array of `FineReq`’s. These are the classes or sub-requirements of a distribution which must be met in order to mark a distribution as completely satisfied. Note that even if the `required_credits` are met for the distribution but there is a `fine_requirement` which is **NOT** met yet, the distribution will **NOT** be marked as satisfied. |
 | `user_select` (optional)       | Boolean value which if true, allows the user to manually mark this distribution as satisfied or unsatisfied through the user interface.                                                                                                                                                                                                                                                                                 |
@@ -87,7 +87,7 @@ Each `FineReq` contains the following member fields:
 | Field                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `required_credits`     | Number representing the total number of credits required to satisfy the fine requirement.                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `description`          | String representing a brief description of the fine requirement.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `description`          | String representing a brief description of the fine requirement. The use of HTML tags such as `<h1>`, `<a>`, `<br />`, etc. in the description will work as long as every tag is closed appropriately.                                                                                                                                                                                                                                                                                     |
 | `criteria`             | String representing the criteria to satisfy a single `fine_requirement`. This could simply be a list of classes, departments whose courses may be taken to satisfy this distribution, the level of classes (upper or lower), etc. The construction of this string is identical to the criteria of a `DistributionObj`. The schema for the different criteria, and examples of how the criteria string is structured are at the [end of this page](#schema-and-example-of-criteria-string). |
 | `exclusive` (optional) | Boolean value which if true, prevents a course from satisfying this fine requirement if it satisfies any other fine requirement within this distribution.                                                                                                                                                                                                                                                                                                                                  |
 
@@ -126,7 +126,7 @@ Every element in the string **MUST** have a valid `[<LETTER>]` following it! Thi
 
 ### Part A: Theoretical Questions
 
-1. Is this a well-designed distribution?
+1. Is this a well-defined distribution?
 
 ```
 {
@@ -249,7 +249,7 @@ This new branch is created solely for you to navigate the codebase and practice 
 
 5. Open `majors.tsx` found at `lib/resources/majors.tsx` and delete all the code in this file.
 
-6. Copy the code below and paste it into `majors.tsx`
+6. Copy the code below and paste it into `majors.tsx`.
 
 ```
 import { Major, Minor } from './commonTypes';
@@ -383,8 +383,8 @@ in terminal window 1 to run the frontend server locally. The "Sciences" distribu
 
 The code above was intentionally designed to contain the following bugs:
 
-1. The addition of any course to the user's plan results in a Runtime Error
-2. The addition of EN.500.113 Gateway Computing: Python to the plan does not correctly update the degree progress even though it is a course that satisfies the Computer Programming requirement
+1. The addition of any course to the user's plan results in a Runtime Error.
+2. The addition of EN.500.113 Gateway Computing: Python to the plan does not correctly update the degree progress even though it is a course that satisfies the Computer Programming requirement.
 
 **Task:** Find the source of the bugs and fix them.
 
@@ -432,9 +432,9 @@ Copy and paste the following code as a new distribution within the `distribution
 
 You are given the following information:
 
-The Humanities and Social Sciences requirement can be satisfied by **ANY** class which is designated the H area or the S area. For the Biomedical Engineering degree, at least 3 credits must come from a class which is Upper Level (300 or 400 level)
+The Humanities and Social Sciences requirement can be satisfied by **ANY** class which is designated the H area or the S area. For the Biomedical Engineering degree, at least 3 credits must come from a class which is Upper Level (300 or 400 level).
 
-**Task:** Design criteria strings for the "Humanities and Social Sciences" Distribution
+**Task:** Design criteria strings for the "Humanities and Social Sciences" Distribution.
 
 <details>
 <summary>Click here for Answer</summary>

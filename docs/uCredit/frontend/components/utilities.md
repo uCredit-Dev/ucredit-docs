@@ -1,6 +1,6 @@
 ---
 sidebar_label: Utilities
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Utility Components

@@ -44,10 +44,9 @@ export type DistributionObj = {
     criteria: string;
     fine_requirements?: FineReq[];
     user_select?: boolean;
-    double_count?: boolean;
     exception?: string;
-    exclusive?: boolean;
-    pathing?: boolean;
+    double_count?: string[];
+    pathing?: number;
 };
 ```
 
@@ -60,10 +59,9 @@ Each `DistributionObj` contains the following member fields:
 - `criteria`: String representing the criteria to satisfy a single distribution. This could simply be a list of classes, departments whose courses may be taken to satisfy this distribution, the level of classes (upper or lower), etc. The schema for the different criteria, and examples of how the criteria string is structured are at the [end of this page](#schema-and-example-of-criteria-string).
 - `fine_requirements` (optional): Custom JavaScript Object of type `FineReq[]` which is basically an array of `FineReq`’s. These are the classes or sub-requirements of a distribution which must be met in order to mark a distribution as completely satisfied. Note that even if the `required_credits` are met for the distribution but there is a `fine_requirement` which is **NOT** met yet, the distribution will **NOT** be marked as satisfied.
 - `user_select` (optional): Boolean value which if true, allows the user to manually mark this distribution as satisfied or unsatisfied through the user interface.
-- `double_count` (optional): Boolean value which if true, allows any course satisfying another distribution to **ALSO** satisfy this distribution if it meets the requirements
 - `exception` (optional): `// TODO: COMPLETE THIS`
-- `exclusive` (optional): Boolean value which if true, does **NOT** allow a course satisfying another distribution to satisfy this distribution
-- `pathing` (optional): Boolean value which if true, marks this distribution as complete if **ANY** of the fine requirements is satisfied. This flag is useful if there are multiple ways of satisfying a given distribution. In this case, all the alternatives would be listed as separate `FineReq`’s as part of the `fine_requirements`.
+- `double_count` (optional): An array of strings containing the names of distributions that are _whitelisted_. Specifies which distribution(s) can overlap with current distribution. If undefined (default), assume that the distribution double counts with **ALL**. If ['N/A'], assume that the requirement **NEVER** double counts. If ['A', 'B'], assume requirement can double count with distributions A and B. 
+- `pathing` (optional): Number value **n** which marks this distribution as complete if **n** of the fine requirements are satisfied. If 0, user must complete all fine requirements. This flag is useful if there are multiple ways of satisfying a given distribution. In this case, all the alternatives would be listed as separate `FineReq`’s as part of the `fine_requirements`.
 
 ## Layout of a `FineReq`
 
@@ -74,7 +72,7 @@ export type FineReq = {
     required_credits: number;
     description: string;
     criteria: string;
-    exclusive?: boolean;
+    double_count?: string[];
 };
 ```
 
@@ -83,7 +81,7 @@ Each `FineReq` contains the following member fields:
 - `required_credits`: Number representing the total number of credits required to satisfy the fine requirement.
 - `description`: String representing a brief description of the fine requirement.
 - `criteria`: String representing the criteria to satisfy a single `fine_requirement`. This could simply be a list of classes, departments whose courses may be taken to satisfy this distribution, the level of classes (upper or lower), etc. The construction of this string is identical to the criteria of a `DistributionObj`. The schema for the different criteria, and examples of how the criteria string is structured are at the [end of this page](#schema-and-example-of-criteria-string).
-- `exclusive` (optional): Boolean value which if true, prevents a course from satisfying this fine requirement if it satisfies any other fine requirement within this distribution.
+- `double_count` (optional): An array of strings containing the _descriptions_ of fine requirements that are _whitelisted_. Specifies which fine requirements can overlap with current fine requirement. 
 
 ## Schema and Example of Criteria String
 

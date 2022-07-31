@@ -1,6 +1,6 @@
 ---
 sidebar_label: Basic Web Development Skills Test
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Basic Web Development Skills Test

@@ -7,7 +7,7 @@ sidebar_position: 7
 
 # More Libraries? Really???
 
-<img src="https://c.tenor.com/DiGdttvmynEAAAAd/shirakami-fubuki-fubuki-fail.gif" width="240" height="260" />
+<center><img src="https://c.tenor.com/DiGdttvmynEAAAAd/shirakami-fubuki-fubuki-fail.gif" width="240" height="260"/></center>
 
 Yup. More libraries. After this is NextJS. Ask Matt why our tech stack is so fat. Get ready for a bunch of words.
 
@@ -25,10 +25,10 @@ When developing web applications and user interfaces, we often have to keep trac
 
 Remember DonutClicker?
 
-<img src="/img/systems/poor_donut_crying.png" width="150" height="150"/>
+<center><div><img src="/img/systems/poor_donut_crying.png" width="150" height="150"/>
 <div class="caption">poor donut crying because he also had to learn redux.</div>
 <br></br>
-<img src="/img/systems/react_unidirectional_flow.png" width="550" height="450"/>
+<img src="/img/systems/react_unidirectional_flow.png" width="550" height="450"/></div></center>
 
 This is how the relationships play out for a single piece of state with only two levels of components! How would this change if we had multiple different CounterDisplays at different parts of the app? What if we had even more kinds of DonutButtons, or other kinds of desserts we wanted to keep track of? What if we wanted to have a high score board for donuts clicked? This hierarchy would grow quickly!
 
@@ -38,12 +38,12 @@ Now imagine an even more complex app that has to keep track of a lot of differen
 
 Redux tries to solve this problem of complex state management by creating a single application store which keeps track of important state in a predictable way. Technically, you can’t just edit this store directly, though, you have to “dispatch” special objects called “actions” to special functions called “reducers” to update the state immutably. But right now that’s a lot of mumbo jumbo. First, we’ll just focus on why a global store is important!
 
-<img src="/img/systems/redux_store_meme.png" width="600" height="350"/>
-<div class="caption">real footage of a redux store, 1627 a.d.</div>
+<center><img src="/img/systems/redux_store_meme.png" width="600" height="350"/>
+<div class="caption">real footage of a redux store, 1627 a.d.</div></center>
 <br></br>
 For uCredit, we use Redux because we’re developing a relatively larger-scale application which contains a lot of nested components. For example, when a user wants to add a new course to the dashboard, they first click on “add course” to open the search popup and then type in their query. **Right off the bat, there’s a lot of information we’re keeping track of!** Just for this feature alone, we have to know:
 
-<img src="/img/systems/redux_store_ucredit_feature.png" width="600" height="350"/>
+<center><img src="/img/systems/redux_store_ucredit_feature.png" width="600" height="350"/></center>
 
 - Whether or not the user is trying to search for courses
 - What Semester/Year the user clicked to add the course to
@@ -56,16 +56,16 @@ The list goes on and on, and this is just a small slice of our application! But 
 
 You can also imagine how different components affect each other, too. Typing another keyword into the search bar would retrieve a different set of relevant courses, so we would have to repopulate the search results list on the left and all the appropriate result cards. Clicking a new course would have to update the course display on the right. Even closing the popup would have to redisplay the original dashboard. It’s complicated. And you can imagine how the data is used under the hood to make things operate smoothly, too!
 
-<img src="https://c.tenor.com/dlJSiLUJNmsAAAAS/math-calculate.gif" width="300" height="200"/>
-<div class="caption">it be like that</div>
+<center><img src="https://c.tenor.com/dlJSiLUJNmsAAAAS/math-calculate.gif" width="300" height="200"/>
+<div class="caption">it be like that</div></center>
 <br></br>
 
 Technically, we could just handle everything using React’s built in hooks, like useState and useEffect, but it’s similar to how we could also technically just ditch React and use vanilla HTML/CSS/JS instead. **Given the context and scale of uCredit, Redux makes things easier in a lot of ways!**
 
 # But how does it work, really?
 
-<img src="/img/systems/bad_things.png" width="400" height="200"/>
-<div class="caption">bad things always come in threes 😭</div>
+<center><img src="/img/systems/bad_things.png" width="400" height="200"/>
+<div class="caption">bad things always come in threes 😭</div></center>
 <br></br>
 
 Now we’ve covered Redux at a high level, time to dig into the docs! Read the following articles (this may take some time) <br></br>
@@ -76,8 +76,9 @@ Now we’ve covered Redux at a high level, time to dig into the docs! Read the f
 
 Let’s take a look at this gif again to see if it makes sense:
 
-![this gif haunts my dreams](https://d33wubrfki0l68.cloudfront.net/01cc198232551a7e180f4e9e327b5ab22d9d14e7/b33f4/assets/images/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
-this gif haunts my dreams
+<center><img src="https://d33wubrfki0l68.cloudfront.net/01cc198232551a7e180f4e9e327b5ab22d9d14e7/b33f4/assets/images/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif" width="500" height="400"/>
+<div class="caption">this gif haunts my dreams</div></center>
+<br></br>
 
 The individual aspects of this should make sense! Make sure you understand every part:
 
@@ -85,8 +86,9 @@ The individual aspects of this should make sense! Make sure you understand every
 - Actions go through **reducers** in the **store** to update **state**
 - **State** is used by **selectors** to update the UI
 
-![ive actually never seen this movie before lmao](/img/systems/circle_of_life.png)
-ive actually never seen this movie before lmao
+<center><img src="/img/systems/circle_of_life.png" width="500" height="300"/>
+<div class="caption">ive actually never seen this movie before lmao</div></center>
+<br></br>
 
 ## Example Repo Walkthrough
 
@@ -106,7 +108,8 @@ git switch counter-default
 
 The sidebar should look like this:
 
-![Untitled](/img/systems/redux_sidebar.png)
+<center><img src="/img/systems/redux_sidebar.png" width="200" height="600"/></center>
+<br></br>
 
 Read the following article and follow along in the repository. Try playing around with the code a little and see if you can understand the differences
 
@@ -129,36 +132,41 @@ Anyways, the article:
 
 ## Some notes on TypeScript
 
-<img src="/img/systems/cow_read.png" width="200" height="500"/>
-<div class="caption">dae read this as a kid? just me?</div>
+<center><img src="/img/systems/cow_read.png" width="200" height="500"/>
+<div class="caption">dae read this as a kid? just me?</div></center>
 <br></br>
 
 Note how the counterSlice looks slightly different in TypeScript! It contains this extra bit about the CounterState interface and the initial state for the slice.
 
-![Untitled](/img/systems/cow_read_1.png)
+<center><img src="/img/systems/cow_read_1.png" width="500" height="200"/></center>
+<br></br>
 
 This makes sure our redux store is typed correctly, and we don’t accidentally change something to an invalid value!
 
 Imagine if we make a mistake typing the status in initial state, like this:
 
-![Untitled](/img/systems/cow_read_2.png)
+<center><img src="/img/systems/cow_read_2.png" width="500" height="200"/></center>
+<br></br>
 
 Notice how TypeScript highlights the mistake for us! If we hover over it, we see:
 
-![Untitled](/img/systems/cow_read_3.png)
+<center><img src="/img/systems/cow_read_3.png"/></center>
+<br></br>
 
 Pretty neat! Generally, TypeScript is a huge buff to intellisense. Try hovering over different variables to see their types, or functions to see their return values and parameters!
 
 Another TypeScript difference is in the counter component, where we have the following code:
 
-![Untitled](/img/systems/cow_read_4.png)
+<center><img src="/img/systems/cow_read_4.png" width="500" height="200"/></center>
+<br></br>
 
 Further down, we can see incrementAmount is of type String that’s used in a controlled component to get the text hte user types. We take the text typed and we use the Number() function to convert it to a number. If that converse fails because the user typed a character instead, the boolean operator turns it into 0 instead. Pretty neat!
 
 ## Switching Up the Skeleton
 
-![code skeleton! skeleton! get it?](/img/systems/skeleton.png)
-code skeleton! skeleton! get it?
+<center><img src="/img/systems/skeleton.png" width="500" height="200"/>
+<div class="caption">code skeleton! skeleton! get it?</div></center>
+<br></br>
 
 While the example Repo is nice, the uCredit repository is set up slightly differently. Run the following command in terminal to switch branches;
 
@@ -168,7 +176,8 @@ git switch counter-reorganized
 
 Now the file structure on the side should look like this:
 
-![Untitled](/img/systems/final_file_structure.png)
+<center><img src="/img/systems/final_file_structure.png" width="200" height="500"/></center>
+<br></br>
 
 It’s pretty similar, but this is a lot closer to how uCredit organizes its components. Features aren’t paired with slices directly, so components are located in a different directory. In our frontend, styles are provided through a CSS framework called Tailwind, so we don’t use css modules either, but we’ll roll with what we have.
 
@@ -188,8 +197,8 @@ The above component is the form component which contains all the logic for searc
 
 # And that’s a wrap (sorta)!
 
-<img src="https://c.tenor.com/DWP_0tNBl_wAAAAd/guoba-dance.gif" width="200" height="500"/>
-<div class="caption">congrats on getting this far.. im so srory..</div>
+<center><img src="https://c.tenor.com/DWP_0tNBl_wAAAAd/guoba-dance.gif" width="400" height="1000"/>
+<div class="caption">congrats on getting this far.. im so srory..</div></center>
 <br></br>
 We’ve just only begun to scratch the surface of what Redux can do, but hopefully this should be a good surface level dive to understanding how selectors, dispatching actions, and state works!
 

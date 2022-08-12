@@ -49,7 +49,7 @@ A person’s spy name is just their real name backwards. Shh! Don’t tell anyon
 
 - Navigate to the App.jsx file again and import the SpyNameGenerator component, and remove any other components from other projects. Try rendering the page. It should look like this!
 
-<img src="/img/systems/spy_name_generator.png" width="200" height="500"/>
+<center><img src="/img/systems/spy_name_generator.png" width="200" height="500"/></center>
 
 - Typing in the currently does nothing. Pressing the button does nothing.
 - Our goal is to have it so as you type text into the textbox, the SpyName is generated under the Current Spy Name header. Hitting save will save the current spy name under the Previous Spy Name Header, allowing you to try out new spy names!
